@@ -1,0 +1,407 @@
+/* pages/home/home.wxss */
+
+.container1 {
+  padding-bottom: 20rpx;
+  height: 100%;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+.home-main {
+  padding: 0 20rpx;
+}
+
+/* 位置 */
+
+.addr {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 80rpx;
+  font-size: 10pt;
+  padding: 10rpx;
+  width: 100%;
+}
+
+.addr-addr {
+  font-size: 10pt;
+  height: 70rpx;
+  width: 25%;
+  top: 25rpx;
+  padding-left: 20rpx;
+  line-height: 60rpx;
+  motion-path: 13rpx;
+  color: #999;
+}
+
+.addr-search {
+  font-size: 10pt;
+  height: 60rpx;
+  width: 45%;
+  margin-left: 20rpx;
+  /* background-color: lightgray; */
+  align-self: center;
+  align-content: center;
+  line-height: 60rpx;
+  border: 1px solid #ccc;
+  color: #ccc;
+  border-radius: 30rpx;
+}
+
+.addr-redpaper {
+  font-size: 10pt;
+  height: 50rpx;
+  width: 15%;
+  margin-top: 13rpx;
+  text-align: right;
+}
+
+.addr-bangbang {
+  font-size: 10pt;
+  height: 50rpx;
+  width: 15%;
+  margin-top: 12rpx;
+  text-align: center;
+}
+
+.addr-image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+/* 轮播图 */
+
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+
+.swiper-box {
+  overflow-x: hidden;
+}
+
+.banner-item {
+  height: 100%;
+  width: 100%;
+}
+
+.banner-item image {
+  height: 100%;
+  width: 100%;
+}
+
+/* 
+.notice {
+    height: 100rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+}
+
+.notice-text {
+    
+    height: 100rpx;
+    width: 100rpx;
+    color: red;
+}
+ 
+.notice-roop {
+    height: 100rpx;
+    width: 500rpx;
+}
+
+.notice-roop-text {
+    height: 50rpx;
+    font-size: 7pt;
+    color: black;
+}
+
+.notice-image {
+    margin-right: 0rpx;
+    height: 100rpx;
+    width: 100rpx;
+} */
+
+/* 天天特惠 */
+
+.onsale {
+  width: 100%;
+  position: relative;
+  font-size: 13pt;
+  /* padding: 10rpx; */
+}
+
+.onsale-title {
+  width: 70%;
+  min-height: 60rpx;
+  text-align: center;
+  margin: 40rpx auto 50rpx;
+  color: red;
+  position: relative;
+  opacity: 0.7;
+}
+
+.onsale-title.onsale-title-gray {
+  color: #636363;
+}
+
+.onsale-title text {
+  display: inline-block;
+}
+
+.onsale-title .ltitle {
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  background: #f8f8f8;
+  z-index: 1;
+  position: relative;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.onsale-title .ttext {
+  position: absolute;
+  bottom: -26rpx;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.onsale-title:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4rpx;
+  border-radius: 1rpx;
+  background: red;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.onsale-title.onsale-title-gray:after {
+  background-color: #636363;
+}
+
+/* 至鲜时刻，倒计时 */
+
+.onsale-view {
+  /* height: 300rpx; */
+  position: relative;
+  padding-top: 20rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.onsale-view-top {
+  height: 100rpx;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+.onsale-view-title{
+  padding-left: 10rpx;
+  line-height: 80rpx;
+}
+.onsale-view-top-cn {
+  color: #fe5858;
+  font-size: 32rpx;
+  font-weight: 600;
+  position: relative;
+  padding-left: 20rpx;
+}
+.onsale-view-top-cn::after{
+  content: "";
+  position: absolute;
+  left:10rpx;
+  top:50%;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color:#fe5858; 
+}
+.onsale-view-top-en {
+  color: lightgray;
+  font-size:24rpx;
+  margin-left:10rpx;
+}
+
+/* 倒计时 */
+
+.count-conutdown-box {
+  position: absolute;
+  right:10rpx;
+  top:10rpx;
+   
+  font-size:30rpx;
+  font-weight: 600;
+  color: #fe5858;
+}
+.count-conutdown-box text{
+  background-color: #fe5858;
+  color: white;
+  display: inline-block;
+  padding: 0 10rpx;
+  margin: 0 5rpx;
+  line-height:60rpx;
+  border-radius: 10rpx;
+}
+
+.count-countdown-bg {
+  background-color: #fb4c44;
+}
+
+.count-space {
+  color: #fb4c44;
+}
+
+.onsale-view-image {
+  
+  width: 100%;
+}
+.onsale-view-image .imgitem{
+  height: 292rpx;
+}
+/*  */
+
+.todayList:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.todayItem:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.todayItem {
+  width: 50%;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+  /* box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.04); */
+  position: relative;
+}
+
+.todayItem .naviitem {
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.todayItem .title1{
+  font-size: 30rpx;
+}
+.todayItem .title2{
+  font-size: 24rpx;
+}
+
+.todayItem:first-child .naviitem {
+  margin-right: 10rpx;
+}
+
+.todayItem:last-child .naviitem {
+  margin-left: 10rpx;
+}
+
+.todayItem  .imgitem {
+  height: 292rpx;
+  border-radius: 0 0 20rpx 20rpx;
+  overflow: hidden;
+}
+
+.todayItem text {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 11pt;
+}
+
+/* 市场商超 */
+
+.marketItem { 
+  margin-bottom: 30rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  position: relative;
+}
+.marketItem .imgitem {
+  height:400rpx;
+}
+.marketItem-bottom {
+  position: absolute;
+  bottom: 0;
+  left:0;
+  background-color: rgba(255, 255, 255, .8);
+  width: 100%; 
+  
+}
+
+.marketItem-bottom .item{
+  display: inline-block;
+  width: 50%;
+  font-size: 28rpx;
+  color: #888;
+  font-weight: 600;
+  line-height: 50rpx;
+}
+ 
+.marketItem-bottom .marketItem-right{
+  text-align: right; 
+}
+.marketItem-bottom .name{
+  font-size: 34rpx;
+  color: #333;
+}
+ 
+ 
+/* 更多 */
+
+.more {
+  width: 100%;
+  min-height: 60rpx;
+  text-align: center;
+  margin: 50rpx 0 40rpx 0;
+  color: #a37011;
+  position: relative;
+}
+
+.more text {
+  display: inline-block;
+  width: 180rpx;
+  height: 60rpx;
+  text-align: center;
+  background: #f9f5ec;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.icon_list {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.icon_item_demo {
+  width: 20%;
+  float: left;
+  margin-bottom: 10rpx;
+}
+
+.icon_type {
+  display: block;
+  font-size: 22rpx;
+}

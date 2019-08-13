@@ -1,0 +1,208 @@
+<view class='container'>
+
+    <view class='info'>
+
+        <view class='info-container'>
+
+            <view class='info-detail'>
+                <view class='info-center'>
+                    <view class='info-detail-left'>
+                        <view class='info-detail-left-icon'>
+                            <image style='width:100%;height:100%' src="https://image.caipud.com/{{info.image}}" mode="aspectFill"></image>
+                        </view>
+                        <view class='info-detail-left-name'>
+                            <view class='info-detail-left-name-top'>
+                                <view class='info-detail-left-name-top-shop'>
+                                    <text>{{info.shop_name}}</text>
+                                </view>
+                                <view class='info-detail-left-name-top-addr'>
+                                    <text>{{info.address}}</text>
+                                </view>
+                            </view>
+                            <view class='info-detail-left-name-bottom'>
+                                <text class='info-detail-left-name-bottom-text'>店铺评分 {{info.p_score}} | 销量 {{info.sales}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='info-detail-right'>
+                        <view class='info-detail-right-star' bindtap='starActionClick'>
+                            <image class='info-detail-right-star-image' src="../../images/market-shop/icon_star_collect_normal.png" mode='aspectFill'></image>
+                        </view>
+                        <view class='info-detail-right-more' bindtap='moreActionClick'>
+                            <image class='info-detail-right-more-image' src="../../images/market-shop/icon_more_navbar.png" mode='aspectFill'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class='info-line'></view>
+            <view class='info-noti'>
+                <text class='info-noti-text'>新店入驻平台，欢迎新老顾客热情精选购买！</text>
+            </view>
+        </view>
+
+    </view>
+
+
+
+
+
+
+    <view class='type'>
+        <navigator class='type-search' url='../csearch/csearch?type=homeShop'>
+            <view class='type-search-center'>
+                <image class='type-search-center-image' src="../../images/market-shop/icon_seaarch_navbar.png" mode='aspectFill'></image>
+                <text class='type-search-center-text'>搜索</text>
+            </view>
+        </navigator>
+
+
+        <scroll-view class="type-navbar" scroll-x="true">
+            <view class="type-box" wx:for-items="{{categorys}}" wx:key="id">
+                <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+                    {{item.category_name}}
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+
+    <!-- <view class='type' wx:if="{{typesSecond.length>0}}">
+    <scroll-view class="type-navbar" scroll-x="true">
+      <view class="type-box" wx:for-items="{{typesSecond}}" wx:key="id">
+        <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+  </view> -->
+
+
+    <view class='goods'>
+        <view wx:if="{{categorys}}" style='width:100%; padding-bottom: 10rpx;'>
+            <block>
+                <view class="nav_right-box" wx:for-items="{{list}}" wx:key="id">
+                    <navigator class='nav_right-nav' url='../detail/detail' open-type="navigate">
+                        <view class='nav_right-box-img'>
+                            <image src='{{source_url}}/{{item.thumb}}' style='width:50px;height:50px;margin-left: 5px;margin-top: 5px;' mode="aspectFill"></image>
+                        </view>
+                        <view class='nav_right-box-detail'>
+                            <view>
+                                <text class='nav_right-box-detail-name-text'>{{item.goods_name}}</text>
+                            </view>
+                            <view class='nav_right-box-detail-num'>
+                                <text class='nav_right-box-detail-num-text'>销量：{{item.goods_sale_number}}|已剩 {{item.goods_number}}</text>
+                            </view>
+                            <view class='price-care'>
+                                <view class='nav_right-box-detail-price-text'>{{item.goods_price}}</view>
+                                <view wx:if="{{2>1}}" style='color:#aaa;text-decoration:line-through'>¥ {{item.goods_price_vice}}/{{item.unit}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view class='add'>
+                        <image class='add-image' bindtap='addClick' data-homeGoodsId="{{item.id}}" src="../../images/market-shop/btn_addcart.png" mode='aspectFill'></image>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+
+
+
+    <!-- 购物车 -->
+    <view class="bottom-box">
+        <view class="bottom-box-container">
+            <view class="cart" bindtap='showCart'>
+                <view class="cart-img" bindtap='showCart'>
+                    <image class="cart-img-image" src="../../images/market-shop/cart_icon.png" mode='aspectFill'></image>
+                    <text class="cart-img-text">({{total_number}})</text>
+                </view>
+                <view class="cart-total">
+                    <view class='cart-total-sum'>¥{{total_price}}</view>
+                    <view class='cart-total-tip'>不含配送费</view>
+                </view>
+            </view>
+            <view class="account">
+                <view class="account-container">
+                    <text class="account-container-text">结算</text>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="show-cart-container" wx:if="{{showCart}}">
+        <view class="cart-mask" bindtap="hideCart"></view>
+
+        <view class="cart-contents">
+
+            <view class="cart-contents-title">
+                <view class="cart-contents-title-fee">订单已产生跨市场购买配送费¥5.00</view>
+                <image class="cart-contents-title-close" bindtap="hideCart" src='../../images/market-shop/cart-contents-title-close.png' mode='aspectFill'></image>
+            </view>
+
+
+            <view wx:if="{{carts}}">
+                <block>
+                    <view class="section" wx:for-items="{{carts}}" wx:key="id">
+                        <view wx:if="{{item.sectionkey}}">
+                            <block>
+                                <view class='row'>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </block>
+            </view>
+
+        </view>
+
+    </view>
+
+    <!-- 规格弹框 -->
+    <view class="show-cart-container" wx:if="{{showPick}}">
+        <!-- 模糊层 -->
+        <view class="cart-mask" bindtap="hidePick">
+        </view>
+
+        <!-- 价格和商品图片 -->
+        <view class="popup-contents">
+            <view class="pop-goods-info">
+                <view class="pop-img-box">
+                    <image src="{{source_url}}/{{detailInfo.thumb}}" class="goods-thumbnail" />
+                </view>
+                <view class="pop-goods-des">
+                    <view class="pop-goods-title">{{detailInfo.goods_name}}</view>
+                    <view class="pop-goods-price">¥ {{detailInfo.goods_price}}</view>
+                </view>
+                <view class="pop-goods-close" bindtap="hidePick"></view>
+            </view>
+
+
+            <!-- 规格和属性 -->
+            <view class="size-label-box">
+                <block wx:for="{{detailGoodsDetail}}" wx:for-item="property" wx:for-index="index" wx:key="id">
+                    <view class="label">{{property.name}}</view>
+                    <view class="label-item-box">
+                        <view class="label-item {{property.childsCurGoods[index].active ? 'active' : '' }}" wx:for="{{property.childsCurGoods}}" wx:key="id" bindtap="labelItemTap" data-propertyindex="{{property.index}}" data-propertyid="{{item.id}}" data-propertyname="{{property.name}}" data-propertychildindex="{{item.id}}"
+                            data-propertychildid="{{item.id}}" data-propertychildname="{{item.name}}">
+                            {{item.name}}
+                        </view>
+                    </view>
+                </block>
+
+
+            </view>
+
+            <view class="popup-join-btn" wx:if="{{shopType =='addShopCar'}}" bindtap="addShopCar">
+                加入购物车
+            </view>
+            <view class="popup-join-btn" wx:if="{{shopType =='tobuy'}}" bindtap="buyNow">
+                立即购买
+            </view>
+        </view>
+
+
+    </view>
+
+
+</view>

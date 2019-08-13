@@ -1,0 +1,21 @@
+<!--pages/myremainDetail/myremainDetail.wxml-->
+ <view class='contain bg-gray'>
+ 
+ <block  wx:for="{{remainlist}}">
+    <view class='rebox' >
+        <view class='rebox-date pd-lr-30'>
+          <text class=''>{{item.date}}</text>
+        </view>
+        <view class='reboxitemlist'>
+            <view class='rebox-item  ' wx:for="{{item.list}}">
+                <text>{{item.retype}}</text>
+                <text class='fr '>{{item.remoney}}</text>
+            </view>
+            
+             
+        </view>
+
+    
+    </view>
+ </block>
+ </view>

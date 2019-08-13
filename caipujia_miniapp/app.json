@@ -1,0 +1,75 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/home/home",
+        "pages/vegetable/vegetable",
+        "pages/my/my",
+        "pages/indexBindnumber/indexBindnumber",
+        "pages/homeMarket/homeMarket",
+        "pages/homePurchase/homePurchase",
+        "pages/homeGroup/homeGroup",
+        "pages/homeDiscount/homeDiscount",
+        "pages/homeMeet/homeMeet",
+        "pages/homeSpecial/homeSpecial",
+        "pages/detail/detail",
+        "pages/homeShop/homeShop",
+        "pages/homeMall/homeMall",
+        "pages/commit/commit",
+        "pages/collect/collect",
+        "pages/corder/corder",
+        "pages/csteps/csteps",
+        "pages/cmyaddr/cmyaddr",
+        "pages/cmyaddrSelect/cmyaddrSelect",
+        "pages/addAddr/addAddr",
+        "pages/mysetting/mysetting",
+        "pages/myhelp/myhelp",
+        "pages/myhelpDetail/myhelpDetail",
+        "pages/mycommit/mycommit",
+        "pages/mycommitDetail/mycommitDetail",
+        "pages/mynotice/mynotice",
+        "pages/mynoticeList/mynoticeList",
+        "pages/mynoticeDetail/mynoticeDetail",
+        "pages/mymember/mymember",
+        "pages/mypay/mypay",
+        "pages/myrefund/myrefund",
+        "pages/myremain/myremain",
+        "pages/myremainDetail/myremainDetail",
+        "pages/vegetableAddgoods/vegetableAddgoods",
+        "pages/vegetableSearch/vegetableSearch",
+        "pages/csearch/csearch",
+        "pages/csearchResult/csearchResult"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#909090",
+        "selectedColor": "#5BD213",
+        "borderStyle": "white",
+        "backgroundColor": "white",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "iconPath": "images/tabar/icon_main_botbar_nor.png",
+                "selectedIconPath": "images/tabar/icon_main_botbar_pre.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/vegetable/vegetable",
+                "iconPath": "images/tabar/icon_new_menu_botbar_nor.png",
+                "selectedIconPath": "images/tabar/icon_new_menu_botbar_pre.png",
+                "text": "菜谱"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "iconPath": "images/tabar/icon_mine_botbar_nor.png",
+                "selectedIconPath": "images/tabar/icon_mine_botbar_pre.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "debug": true
+}

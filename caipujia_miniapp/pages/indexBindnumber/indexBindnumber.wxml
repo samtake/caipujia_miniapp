@@ -1,0 +1,46 @@
+<!--pages/index-bindnumber/index-bindnumber.wxml-->
+<view class='container'>
+  <view class='tip'>
+    <text class='tip-text'>温馨提示：绑定手机号码后，手机号或者微信号均可登录菜谱端生鲜商城。菜谱短承诺你的手机号及账号信息隐私安全</text>
+  </view>
+
+  <view class='phone'>
+    <view class='phone-view'>
+      <view class='phone-view-left'><input class='phone-view-left-input' placeholder="请输入手机号码" auto-focus     bindinput='setPhone'/></view>
+      <view class='phone-view-right'>
+        <button class='phone-view-right-button' bindtap='getVerifyCode' >{{time}}</button>
+      </view>
+    </view>
+    <view class='phone-line'></view>
+  </view>
+
+  <view class='phone'>
+    <view class='phone-view'>
+      <view class='phone-view-left'><input  class='phone-view-left-input' placeholder="请输入短信验证码" auto-focus  bindinput='setCode'/></view>
+      <view class='phone-view-right'></view>
+    </view>
+    <view class='phone-line'></view>
+  </view>
+
+
+  <!-- <view class='phone'>
+    <view class='phone-view'>
+      <view class='phone-view-left'><input  class='phone-view-left-input' placeholder="请输入密码" auto-focus  bindinput='setPW'/></view>
+      <view class='phone-view-right'></view>
+    </view>
+    <view class='phone-line'></view>
+  </view>
+
+  <view class='phone'>
+    <view class='phone-view'>
+      <view class='phone-view-left'><input  class='phone-view-left-input' placeholder="请再次输入密码" auto-focus  bindinput='setPWSure'/></view>
+      <view class='phone-view-right'></view>
+    </view>
+    <view class='phone-line'></view>
+  </view> -->
+
+  
+
+  <view><button class='buttonbind' bindtap='buttonbind'>立即绑定</button></view>
+</view>
+

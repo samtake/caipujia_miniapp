@@ -1,0 +1,254 @@
+<!--pages/corder/corder.wxml-->
+ <view class=' bg-gray pd-t10 pd-b150'>
+ 
+ <view class="input-container ">
+      <view class="input-wrap" bindtap='tabselectAddress'>
+          <wxc-input type="text" title="" placeholder="添加收货地址，免费送货到家" value='{{address.addressstr}}{{address.area_name}}'></wxc-input>
+      </view>
+  </view>
+
+   <view class="list-wrap mg-t20 bg-white pd-lr-10">
+      <view class='ilist-item'  bindtap='showMask'>
+          <text class='title'>送达时间</text>
+
+          <wxc-icon size="20" color='#eee' type="arrow-right" class='fr'></wxc-icon>
+          <text class='fr wrap'>{{selectTime}}</text>
+      </view>
+
+       <view class='ilist-item' bindtap='showPopup_pay'>
+          <text class='title'>支付方式</text>
+           <wxc-icon size="20" color='#eee' type="arrow-right" class='fr'  ></wxc-icon>
+          <text class='fr wrap'>{{isSetpay?payWay:'请选择支付方式'}}</text>
+      </view>
+ 
+  </view>
+
+  <view class='shoplist mg-t20'>
+ 
+  <!-- 店铺 -->
+      <view class='shopbox bg-white ' wx:for="{{ordergoods}}">
+        <view class=' pd-lr-40 pd-tb-20'> 
+            <view class='shop-title  bb-f8'>
+                <wxc-icon size="30" type="shop"></wxc-icon>
+                <text>{{item.shop_name}}</text>
+
+                <text class='fr '>
+                  <wxc-icon size="30" type="location"></wxc-icon>
+                    
+                    <text>{{item.name==null?'':item.name}}</text>
+                </text>
+            </view>
+            <view class='shop-wrap goodslist'  >
+                <view class='goodsbox ' wx:for="{{item.goods}}">
+                    <wxc-flex class="wrap">
+                        <view class="item side">
+                          <view class='img img150' style="background:url({{source_url}}/{{item.thumb}}) no-repeat center/cover">
+                          </view>
+                        </view>
+                        <view class="item main">
+                          
+                            <view class='gname lh-50'>
+                              <text> {{item.goods_name}}</text>  
+                                <text class='fr '>x {{item.goods_number}}</text>
+                            
+                            </view>
+                            <view class='gprice'>
+                              <text class='text-red'>￥{{item.goods_price}}/{{item.value}}{{item.unit}}</text>
+                            </view>
+                          
+                          
+                        </view>
+                        
+                      </wxc-flex>
+
+                </view>
+                   
+            </view> 
+        </view>
+        <view class="input-container order-msg bt-f8">
+            <view class="input-wrap">
+                <wxc-input type="text" title="订单留言:" confirm-type="done" bindconfirm="updataRmark" bindblur="updataRmark"  id="{{item.id}}" placeholder="可以填写给与商家的留言内容" value='{{item.remark}}'></wxc-input>
+            </view>
+        </view>
+      </view>
+
+       <!--  <view class='shopbox bg-white '>
+        <view class=' pd-lr-40 pd-tb-20'> 
+            <view class='shop-title  bb-f8'>
+                <wxc-icon size="30" type="shop"></wxc-icon>
+                <text>店铺名称</text>
+
+                <text class='fr '>
+                  <wxc-icon size="30" type="location"></wxc-icon>
+                    
+                    <text>石楼市场</text>
+                </text>
+            </view>
+            <view class='shop-wrap goodslist'>
+                <view class='goodsbox '>
+                    <wxc-flex class="wrap">
+                        <view class="item side">
+                          <view class='img img150' style="background:url(../../images/sx_5.png) no-repeat center/cover">
+                          </view>
+                        </view>
+                        <view class="item main">
+                          
+                            <view class='gname lh-50'>
+                              <text> 商品名称</text>  
+                                <text class='fr '>x 1</text>
+                            
+                            </view>
+                            <view class='gprice'>
+                              <text class='text-red'>￥9.00/0.7斤</text>
+                            </view>
+                          
+                          
+                        </view>
+                        
+                      </wxc-flex>
+
+                    </view>
+                  <view class='goodsbox '>
+                    <wxc-flex class="wrap">
+                        <view class="item side">
+                          <view class='img img150' style="background:url(../../images/sx_5.png) no-repeat center/cover">
+                          </view>
+                        </view>
+                        <view class="item main">
+                          
+                            <view class='gname lh-50'>
+                              <text> 商品名称</text>  
+                                <text class='fr '>x 1</text>
+                            
+                            </view>
+                            <view class='gprice'>
+                              <text class='text-red'>￥9.00/0.7斤</text>
+                            </view>
+                          
+                          
+                        </view>
+                        
+                      </wxc-flex>
+
+                    </view>
+
+
+
+            </view> 
+        </view>
+        <view class="input-container order-msg bt-f8">
+            <view class="input-wrap">
+                <wxc-input type="text" title="订单留言:" placeholder="可以填写给与商家的留言内容"></wxc-input>
+            </view>
+        </view>
+      </view> -->
+
+  </view>
+
+
+  <view class="list-wrap mg-t20 pd-lr-10 bg-white">
+      <view class='ilist-item' >
+          <text class='title'>结算明细</text>
+          <text class='fr wrap'>共{{count_goods}}件商品</text>
+      </view>
+       <view class='ilist-item'>
+          <text class='title'>现金红包</text>
+          <text class='fr wrap'>￥{{coupons_sum_model}}</text>
+      </view>
+       <view class='ilist-item'>
+          <text class='title'>配送费</text>
+          <text class='fr wrap'>￥0.00</text>
+      </view>
+       <view class='ilist-item'>
+          <text class='title'>商品总计</text>
+          <text class='fr wrap'>￥{{total_goods_amount}}</text>
+      </view>
+
+ 
+  </view>
+
+ 
+
+
+ 
+
+
+
+ </view>
+
+
+ 
+    <view class="bottom-box">
+        <view class="bottom-box-container">
+            <view class="cart" bindtap='showCart'>
+                <view class="cart-img" bindtap='showCart'>
+                    <image class="cart-img-image" src="../../images/market-shop/cart_icon@3x.png" mode='aspectFill'></image>
+                    <text class="cart-img-text">("{{count_goods}}")</text>
+                </view>
+                <view class="cart-total">
+                    <view class='cart-total-sum'>¥{{total_goods_amount}}</view>
+                    
+                </view>
+            </view>
+            <view class="account">
+                <view class="account-container">
+                    <text class="account-container-text" catchtap='orderSubmit'>结算</text>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+
+
+<!-- 选择支付方式 -->
+<wxc-popup class="J_Popup J_PopupPW" animation-mode="bottom" align="bottom">
+    <view class="popup__content pd-lr-30 pd-tb-30">
+        <view class='lh-100'>
+            <text class='text-gray'>选择支付方式</text>  
+            <text class='text-gray fr'>取消</text>
+        
+        </view>
+        <view class='list-wrap bt-f8'>
+            <view class='ilist-item ' wx:for="{{payinfo}}" bindtap='setpayway' id="{{item.id}}" data-text="{{item.text}}">
+                <image class='img50'  src='{{item.icon}}'></image>
+                <text>{{item.text}}</text>
+                <text wx:if="{{show}}" class='text-red text-error'>(余额不足)</text>
+            </view>
+            <!-- <view class='ilist-item ' bindtap='setpayway' id="4" data-text="余额支付">
+                <image class='img50'  src='../../images/icon/pay_yue.png'></image>
+                <text>余额支付</text>
+                <text class='text-red text-error'>(余额不足)</text>
+            </view>
+            <view class='ilist-item ' bindtap='setpayway' id="1" data-text="微信支付">
+                <image class='img50' src='../../images/icon/pay_wx.png'></image>
+                <text>微信支付</text>
+                
+            </view> -->
+        </view>
+         
+    </view>
+  </wxc-popup>
+
+ 
+ <wxc-mask class="J_mask"  content-align="bl" bindtap="hideMask"></wxc-mask>
+ 
+<view class="timebox" wx:if="{{showtime}}">
+      <view class='lh-100 bb-f8 pd-lr-20'>
+            <text class='text-gray' catchtap='hideMask'>取消</text>  
+            <text class='text-3 fr' catchtap='time_sure'>确定</text>
+        
+        </view>
+    <picker-view  indicator-style="height: 50px; " style="width: 100%; height: 150px;" value="{{value}}" bindchange="bindChangeColumn">
+        <picker-view-column>
+            <view wx:for="{{multiArray}}" style='line-height: 50px;text-align:center;'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{timearr}}" style='line-height: 50px;text-align:center;'>{{item}}</view>
+        </picker-view-column>
+        
+    </picker-view>
+</view>
+
+
+ 

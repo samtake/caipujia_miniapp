@@ -1,0 +1,61 @@
+/* pages/homeGroup/homeGroup.wxss */
+
+/* type */
+
+.type {
+    width:100%;
+    height:auto;
+}
+
+.type-container {
+    margin:0 0 10rpx 35rpx;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /* display: block;
+    padding: 10rpx;
+    background: #696969; */
+}
+
+
+
+/* goods */
+
+.goods {
+    width:100%;
+    height:auto;
+    margin: 30rpx;
+}
+
+.goods-item{
+    height: 200rpx;
+    width: 700rpx;
+    margin-bottom: 30rpx;display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+.goods-item-image {
+    width: 150rpx;
+    height: 150rpx;
+    margin: 25rpx 25rpx ;
+    
+}
+
+
+.goods-item-qiang {
+    margin: 0rpx 0rpx;
+
+    height: 100%;
+    width: 200rpx;
+    
+}
+
+.qiang-cc {
+    margin-top: 0rpx;
+    height:auto;
+    width: 100%;  
+}

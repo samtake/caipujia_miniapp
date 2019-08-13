@@ -1,0 +1,174 @@
+/* pages/corder/corder.wxss */
+.goodslist .goodsbox{
+   margin-bottom: 0;
+  padding: 20rpx 0;
+}
+.goodsbox .side{
+  width: 150rpx;
+}
+.goodslist {
+  padding: 0;
+}
+.shop-title{
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+.gprice{
+  margin-top: 65rpx;
+  font-size: 28rpx;
+}
+
+
+
+.popup__content {
+  width: 100%;
+  background: #ffffff;
+  font-size: 32rpx;
+
+  /* height: 500rpx;
+  line-height: 500rpx;
+  background: #ffffff;
+  text-align: center; */
+}
+.text-error{
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+.popup__content .list-wrap .ilist-item{
+  position: relative;
+  padding-left: 70rpx;
+}
+.popup__content .list-wrap .ilist-item image{
+  position: absolute;
+  top:15rpx;
+  left:10rpx;
+}
+
+
+.J_Popuptime .popup__content{
+  height: 60%;
+  overflow: hidden;
+  position: relative;
+
+  /* overflow-y: auto; */
+}
+
+ 
+.timebox {
+  position: fixed;
+    width: 100%;
+   bottom: 0;
+    left:0;
+    background: #fff;
+    z-index: 9999;
+    font-size: 30rpx;
+     
+  }
+
+.timerPicker{
+  height: 300rpx;
+  width: 100%;
+}
+.timeitem{
+  line-height: 100rpx;
+}
+ 
+
+/* 购物车 */
+
+/* bottom-box */
+.bottom-box{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size:28rpx;
+    color:#000000;
+    border-top: 1rpx solid #eee;
+    height:100rpx;
+    line-height: 100rpx;
+    background-color: white;
+    background-size: 15rpx auto;
+    
+}
+
+.bottom-box-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.cart {
+  width: 70%;
+  height: 100%;
+  background-color:white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.cart-img {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-img-image {
+  width: 25px;
+  height: 25px;
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+}
+
+
+.cart-img-text{
+  color: #FE5858;
+  font-size: 5;
+  margin-top: -20rpx;
+  margin-left: 0rpx;
+}
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  width: 70%;
+  height: 100%;
+  background-color:white;
+}
+
+.cart-total-sum {
+  height: 30%;
+  width: 100%;
+  color: #EF5151;
+  font-size: 30rpx;
+}
+
+.cart-total-tip {
+  width: 100%;
+  height: 70%;
+  color: lightgray;
+  font-size: 15rpx;
+} 
+
+.account {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #5BD213;
+}
+
+.account-container{
+  align-items: center;
+}
+
+.account-container-text {
+  color: white;
+}
+
+
+

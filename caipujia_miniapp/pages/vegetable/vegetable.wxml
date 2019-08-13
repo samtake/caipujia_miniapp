@@ -1,0 +1,144 @@
+<!-- 菜谱列表的模板 -->
+<template name="veglist" >
+   <view class='vegitem' data-number="{{number}}" >
+                    <navigator>
+                    <view class='img img180' style="background:url(https://image.caipud.com/{{thumb}}?imageView2/1/w/180/h/180/) no-repeat center/cover"></view>
+                     </navigator>
+                     <image wx:if="{{showDeleteButton}}" data-goodsid="{{goods_id}}" data-onsale="{{is_sale_complete}}" data-id="{{id}}" class='vegitem-delete' src="../../images/vegetable/icon_del_withe.png" mode='aspectFill'></image>
+                    <view class='vegitem-text'>
+                         <view>{{goods_name}}</view>
+                        <view>￥{{price}}/{{value}}{{unit}}</view>
+                    </view>
+                
+      </view>
+</template>
+
+
+
+
+
+<view class='container bg-gray'>
+    <view class="{{showEdit ? 'edittab tag  fixtag' : 'fixtag tag'}}" >
+         
+
+        <block wx:for="{{cates}}" wx:key="*this" wx:for-item="item">
+            <view class="{{tagActiveid === item.id ? 'tab-item tab-item-active' : 'tab-item'}}"   >
+              <view class='tab-item-text'  bindtap="tagClick"  id="{{item.id}}" data-name="{{item.name}}" >{{item.name}}</view>
+                <image class='tab-item-delete' wx:if="{{showDeleteButton}}" src="../../images/vegetable/icon_del_withe.png" mode='aspectFill' bindtap='deleteTagClick'  data-id="{{item.id}}"></image>
+            </view>
+        </block>
+
+
+        <view  wx:if="{{!showDeleteButton}}"  class='tab-item tab-item-add' bindtap='addTagClickShow'>
+          <wxc-icon size="20" type="add" color='#ccc'></wxc-icon>
+        </view>
+        
+    </view>
+
+
+
+
+    <view class='vegboxlist'>
+
+      <view class='vegbox' wx:for="{{cookbooks}}">
+            <view class='vegbox-title bg-white'>
+              <view>
+                  <text  catchtap='editcpu' class='vegbox-name' data-cateid="{{item.cate_id}}" data-id="{{item.id}}" data-name="{{item.title}}">{{item.title}}</text>
+                   <text class='vegbox-price'>{{item.sum_goods_price}}元</text>
+                    <image wx:if="{{showDeleteButton}}" catchtap='deletecaipu' data-cateid="{{item.cate_id}}" data-id="{{item.id}}" class='vegbox-del fr' src="../../images/vegetable/btn_icon_del.png"></image>
+
+                     <image  wx:if="{{!showDeleteButton}}"   catchtap='addgoodstocart' data-cateid="{{item.cate_id}}" data-id="{{item.id}}" class='vegbox-add fr'  src="../../images/vegetable/btn_cart_menu.png" mode='aspectFill'></image>
+           
+              </view>
+               </view>
+            <view class='vegbox-wrap vegitemlist bg-white'>
+
+              <!-- <template wx:for="{{item.goods}}" is="veglist" data="{{...item}}"></template> -->
+                
+                 <view class='vegitem' wx:for="{{item.goods}}"  >
+                    <view  bindtap='addGoodsSearch' data-typeid="{{item.type_id}}" data-goodsname="{{item.goods_name}}"  data-did="{{item.property_id}}">
+                       <view class='img img180' style="background:url({{source_url}}/{{item.thumb}}?imageView2/1/w/180/h/180/) no-repeat center/cover"></view>
+                     </view>
+                     <image wx:if="{{showDeleteButton}}" catchtap='deletegoods' data-typeid="{{item.type_id}}" data-goodsid="{{item.goods_id}}" data-onsale="{{item.is_sale_complete}}" data-id="{{item.property_id}}" class='vegitem-delete' src="../../images/vegetable/icon_del_withe.png" mode='aspectFill'></image>
+                     
+                    <view class='vegitem-text'>
+                         <view>{{item.goods_name}}</view>
+                        <view>￥{{item.price}}/{{item.value}}{{item.unit}}</view>
+                    </view>
+                
+                </view> 
+                 <!-- 添加按钮 -->
+                  <view wx:if="{{!showDeleteButton}}"  bindtap='addGoods' id="{{item.id}}" class='vegitem vegitem-add'>
+                    <view class='img img180' style="background:url(../../images/vegetable/vegadd.png) no-repeat center/cover"></view>
+                      <view class='vegitem-text'> </view>
+                   </view>
+                 
+            </view>
+      
+      </view>
+    
+    
+    
+    
+    </view>
+
+    <!-- dialog -->
+    <wxc-dialog class="wxc-dialog wxc-dialog1" title="" content="" confirm-text="确定" bindconfirm="onConfirm" bindcancel="onCancel">
+         
+        <input class="input" class='input-addfl' value='{{editfname}}' placeholder="请填写菜谱分类名" bindinput='setCategory'/>
+    </wxc-dialog>
+
+
+    <!-- dialog -->
+    <wxc-dialog class="wxc-dialog wxc-dialog2" title="" content="" confirm-text="确定" bindconfirm="onConfirm1" bindcancel="onCancel1">
+         
+        <input class="input" class='input-addcpu' placeholder="请输入菜谱名称" value='{{editcpname}}' bindinput='setcaipu'/>
+    </wxc-dialog>
+
+
+<!-- 
+<view catchtap='toorder'>去订单</view> -->
+    <!-- <button bindtap='addGoods'>新增商品</button>
+    <button bindtap='addGoodsSearch'>+</button> -->
+ <block wx:if="{{!showDeleteButton}}">
+    <view class='summit'>
+        <button class="save bg-grad-green text-white"   bindtap="saveClick">新增菜谱</button>
+    </view>
+ </block>
+    <block wx:if="{{showDeleteButton}}">
+        <view class='summit'>
+          <button class="cancel bg-grad-green text-white"  bindtap="editTagClick">完成编辑</button>
+        </view>
+
+     </block>
+
+    <block wx:if="{{!showDeleteButton}}"> <view class='summit'>
+        <button class="cancel bg-grad-green text-white"  bindtap="editTagClick">编辑菜谱</button>
+    </view>
+ </block>
+
+    <view class="bottom-box">
+        <view class="bottom-box-container">
+            <view class="cart" bindtap='showCart'>
+                <view class="cart-img" bindtap='showCart'>
+                    <image class="cart-img-image" src="../../images/market-shop/cart_icon@3x.png" mode='aspectFill'></image>
+                    <text class="cart-img-text">("{{cartInfo.total_number}}")</text>
+                </view>
+                <view class="cart-total">
+                    <view class='cart-total-sum'>¥{{cartInfo.total_price}}</view>
+                    <!-- <view class='cart-total-tip'>配送费¥0.00</view> -->
+                </view>
+            </view>
+            <view class="account">
+                <view class="account-container">
+                    <text class="account-container-text" catchtap='tomakeOrder'>结算</text>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+
+
+
+</view>

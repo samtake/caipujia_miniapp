@@ -1,0 +1,47 @@
+<!--pages/homeGroup/homeGroup.wxml-->
+<!--pages/homeDiscount/homeDiscount.wxml-->
+<view>
+    <!-- 标签 -->
+    <view class="type">
+        <wxc-flex wrap="wrap" class='type-container' wx:for-items="{{cates}}" wx:key="id">
+            <wxc-button size="normal" id="{{item.id}}" type="{{ formId == item.id ? beauty : disabled}}" value="{{item.name}}" bindsubmit="typeClick"></wxc-button>
+        </wxc-flex>
+    </view>
+
+
+
+
+
+    <!-- 商品列表 -->
+    <view class="goods">
+        <view class="goods-item" wx:for-items="{{list}}" wx:key="id" bindtap='cellClick' goods_id="{{item.goods_id}}" activity_id="{{item.activity_id}}">
+            <view style='width:200rpx;height:200rpx;'>
+                <image class="goods-item-image" src="{{source_url}}/{{item.image}}"></image>
+            </view>
+            <wxc-flex style='width:400rpx;' dir="top">
+                <view style='font-size:10pt;margin-top:20rpx;'>{{item.shop_name}}</view>
+                <view style='font-size:8pt;width:100%;height:30rpx;margin-top=20rpx;'>{{item.name}}</view>
+
+                <view style='font-size:7pt;color:black;'>
+                    <wxc-countdown countdown="1000"></wxc-countdown>
+                </view>
+
+                <view style='font-size:7pt;color:black;flex-direction: row;'>
+                    <view style='width:200rpx;height:30rpx;'>
+                        <wxc-progress  percent="80"></wxc-progress>
+                    </view>
+                    <view></view>
+
+                    还差10人成团
+                </view>
+            </wxc-flex>
+
+            <view class='goods-item-qiang'>
+                <wxc-flex class='qiang-cc' dir="left" wrap="wrap">
+                    <view style='width:80%;height:50rpx;background-color:red;border-radius: 25rpx; color:white; font-size:10pt; margin-top:50rpx; text-align: center;' bindtap='chooseClick' shopid="{{item.shopid}}" activityid="{{item.activityid}}">去拼单</view>
+                </wxc-flex>
+
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "wxc-dialog": "../../../dist/packages/@minui/wxc-dialog/dist/index",
+    "wxc-label": "../../../dist/packages/@minui/wxc-label/dist/index",
+    "wxc-icon": "../../../dist/packages/@minui/wxc-icon/dist/index",
+    "wxc-input": "../../../dist/packages/@minui/wxc-input/dist/index",
+    "wxc-list": "../../../dist/packages/@minui/wxc-list/dist/index",
+    "wxc-flex": "../../../dist/packages/@minui/wxc-flex/dist/index",
+    "wxc-popup": "../../../dist/packages/@minui/wxc-popup/dist/index",
+    "wxc-mask": "../../../dist/packages/@minui/wxc-mask/dist/index",
+ 
+    "wxc-tab": "../../../dist/packages/@minui/wxc-tab/dist/index",
+    "wxc-panel": "../../../dist/packages/@minui/wxc-panel/dist/index"
+  },
+  "navigationBarTitleText": "确认订单"
+}

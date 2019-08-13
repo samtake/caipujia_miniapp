@@ -1,0 +1,15 @@
+/* pages/mynoticeDetail/mynoticeDetail.wxss */
+
+.date{
+  line-height: 80rpx;
+  font-size: 28rpx;
+  padding-top: 20rpx;
+}
+.title{
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.text{
+  padding: 20rpx 0;
+  font-size: 28rpx;
+}

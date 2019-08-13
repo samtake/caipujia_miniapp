@@ -1,0 +1,486 @@
+<!--pages/mypay/mypay.wxml-->
+<view class='container'>
+  <view class='type'>
+    <scroll-view class="type-navbar" scroll-x="true">
+      <view class="type-box" wx:for-items="{{categories}}" wx:key="id">
+        <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+
+
+ <block wx:if="{{activeCategoryId==0}}">
+      <view class='orderlist'>
+          
+            <template is="order_all" wx:for="{{orderList}}" data="{{...item}}" />
+      </view>
+      <!-- list -->
+  </block>
+
+  <block wx:if="{{activeCategoryId==1}}">
+      <view class='orderlist'>
+          
+            <template is="order_nopay" wx:for="{{orderList}}" data="{{...item}}" />
+      </view>
+      <!-- list -->
+  </block>
+ 
+
+ <block wx:if="{{activeCategoryId==2}}">
+      <view class='orderlist'>
+          
+            <template is="order_nodriver" wx:for="{{orderList}}" data="{{...item}}" />
+      </view>
+      <!-- list -->
+  </block>
+
+   <block wx:if="{{activeCategoryId==3}}">
+      <view class='orderlist'>
+          
+            <template is="order_driverdo" wx:for="{{orderList}}" data="{{...item}}" />
+      </view>
+      <!-- list -->
+  </block>
+    <block wx:if="{{activeCategoryId==4}}">
+      <view class='orderlist'>
+          
+            <template is="order_evalue" wx:for="{{orderList}}" data="{{...item}}" />
+      </view>
+      <!-- list -->
+  </block>
+
+</view>
+
+
+   
+ <!-- 全部 -->
+ <template name="order_all">
+  
+    <view class='orderitem allorderitem' >
+      <!-- 日期时间 -->
+      <view class='order-date '>
+        <text>03月03日</text>
+        <text>{{create_time}}</text>
+      </view>
+       
+
+      <!-- 店铺老板 -->
+      <view class='shoplist'>
+        <view class='shopbox bg-white ' wx:for="{{orders}}"  wx:key="{{item.id}}" data-sn="{{item.order_sn}}">
+         <!-- 订单号 状态 -->
+          <view class='order-title  bg-white bb-f8' wx:if="{{index==0}}">
+            <text class='order-num text-a'>订单号:{{unionid}}</text>
+            <text class='order-state fr text-red' >{{item.status_text}}</text>
+          </view>
+
+
+          <view class=' pd-lr-20 pd-tb-20'>
+            <view class='shop-title text-a  bb-f8'>
+              <wxc-icon size="25" type="shop" color='#aaa'></wxc-icon>
+              <text class='mg-l10'>{{item.shop_name}} </text>
+              <text class='fr '>
+                          <wxc-icon size="25" type="location"  color='#aaa'></wxc-icon>
+                          <text class='mg-l10'>{{item.name}}</text>
+              </text>
+            </view>
+            <view class='shop-wrap goodslist'>
+              <!-- 商品列表 -->
+              <view class='goodsbox bb-f8' wx:for="{{item.goods}}">
+                <wxc-flex class="wrap">
+                  <view class="item side">
+                    <view class='img img100' style="background:url({{item.source_url}}/{{item.thumb}}) no-repeat center/cover">
+                    </view>
+                  </view>
+                  <view class="item main">
+                    <view class='gname lh-50'>
+                      <text> {{item.goods_name}}</text>
+                    </view>
+                    <view class='gprice text-a'>
+                      <text class=''>￥{{item.goods_price}}/{{item.value}}{{item.unit}}</text>
+                      <text class='fr '>x {{item.goods_number}}</text>
+                    </view>
+                  </view>
+                </wxc-flex>
+              </view>
+            </view>
+          </view>
+
+
+      
+
+        <block wx:if="{{item.is_commented==0 && item.pay_status==6}}">
+          <!-- 差价 -->
+                      <view class='order-footer  bg-white' >
+                      <text class='text-red '>实付:￥{{order_amount}}</text>
+                      <text class=' text-gray fr text-tip' wx:if="{{price_differenc>0}}">
+                        你本次消费尚有￥{{price_differenc}}差价未结清
+                      </text>
+                    </view>
+                    
+                    <view class='order-footer  bg-white text-right bt-f8' >
+                    <label class=' label-btn   text-gray radius-30 pd-lr-20 border-gray'>申请退换</label>
+                      
+                      <text class='  label-btn  mg-l20  bg-grad-green text-white radius-30 pd-lr-20'  wx:if="{{price_differenc>0}}">结清差价</text>
+                      <label class='   label-btn mg-l20 bg-grad-yellow text-white radius-30 pd-lr-20 '>评价</label>
+                        
+                        
+                    </view>
+
+
+        </block>
+         <block wx:if="{{item.pay_status==0}}">
+          <!-- 待付款 -->
+             <view class='order-footer  bg-white'  >
+                  <text class='text-red'>实付:￥{{item.order_total_amount}}</text>
+      
+                    <label class='fr mg-l20 label-btn bg-grad-green text-white radius-30 pd-lr-20' bindtap='topaymoney' data-unionid="{{item.unionid}}" data-modeltype="1">付款{{item.order_total_amount}}</label>
+                    <label class='fr label-btn   text-gray radius-30 pd-lr-20 border-gray'>取消</label>
+            </view>
+
+
+        </block>
+         <block wx:if="{{item.pay_status==1}}">
+          <!-- 待抢单 -->
+              <view class='order-footer  bg-white' >
+              <text class='text-red'>实付:￥{{order_amount}}</text>
+              <label class='fr mg-l20 label-btn bg-grad-green text-white radius-30 pd-lr-20' >催单</label>
+            </view>
+
+
+        </block>
+         <block wx:if="{{item.pay_status==9}}">
+          <!-- 配送中 -->
+                <view class='order-footer  bg-white' >
+                  <text class='text-red '>实付:￥{{order_amount}}</text>
+                  <text class=' text-gray fr text-tip'>
+                    预计13:00送达，请保持联系通畅
+                  </text>
+                </view>
+                
+                <view class='order-footer  bg-white text-right bt-f8' >
+                <label class=' label-btn   text-gray radius-30 pd-lr-20 border-gray'>申请退换</label>
+                <label class='   label-btn mg-l20  text-gray radius-30 pd-lr-20 border-gray'>联系配送员</label>
+                  <text class='  label-btn  mg-l20  bg-grad-green text-white radius-30 pd-lr-20'>确认</text>
+                    
+                    
+                </view>
+
+        </block>
+
+
+
+
+          
+  
+       </view>
+  
+      </view>
+      <!-- shoplist -->
+ 
+    </view>
+    <!-- item -->
+
+     
+
+</template>
+
+<!-- 待评价 -->
+ <template name="order_evalue">
+  
+    <view class='orderitem ' >
+      <!-- 日期时间 -->
+      <view class='order-date '>
+        <text>03月03日</text>
+        <text>{{create_time}}</text>
+      </view>
+       <!-- 订单号 状态 -->
+          <view class='order-title  bg-white bb-f8'>
+            <text class='order-num text-a'>订单号:{{order_sn}}</text>
+            <text class='order-state fr text-green' >待评价</text>
+          </view>
+
+      <!-- 店铺老板 -->
+      <view class='shoplist'>
+        <view class='shopbox bg-white ' >
+          <view class=' pd-lr-20 pd-tb-20'>
+            <view class='shop-title text-a  bb-f8'>
+              <wxc-icon size="25" type="shop" color='#aaa'></wxc-icon>
+              <text class='mg-l10'>{{shop_name}} </text>
+              <text class='fr '>
+                          <wxc-icon size="25" type="location"  color='#aaa'></wxc-icon>
+                          <text class='mg-l10'>{{name}}</text>
+              </text>
+            </view>
+            <view class='shop-wrap goodslist'>
+              <!-- 商品列表 -->
+              <view class='goodsbox bb-f8' wx:for="{{goods}}">
+                <wxc-flex class="wrap">
+                  <view class="item side">
+                    <view class='img img100' style="background:url({{item.source_url}}/{{item.thumb}}) no-repeat center/cover">
+                    </view>
+                  </view>
+                  <view class="item main">
+                    <view class='gname lh-50'>
+                      <text> {{item.goods_name}}</text>
+                    </view>
+                    <view class='gprice text-a'>
+                      <text class=''>￥{{item.goods_price}}/{{item.value}}{{item.unit}}</text>
+                      <text class='fr '>x {{item.goods_number}}</text>
+                    </view>
+                  </view>
+                </wxc-flex>
+              </view>
+            </view>
+          </view>
+ 
+       </view>
+
+  
+      </view>
+      <view class='order-footer  bg-white' >
+            <text class='text-red '>实付:￥{{order_amount}}</text>
+            <text class=' text-gray fr text-tip' wx:if="{{price_differenc>0}}">
+              你本次消费尚有￥{{price_differenc}}差价未结清
+            </text>
+          </view>
+          
+           <view class='order-footer  bg-white text-right bt-f8' >
+           <label class=' label-btn   text-gray radius-30 pd-lr-20 border-gray'>申请退换</label>
+            
+            <text class='  label-btn  mg-l20  bg-grad-green text-white radius-30 pd-lr-20'  wx:if="{{price_differenc>0}}">结清差价</text>
+            <label class='   label-btn mg-l20 bg-grad-yellow text-white radius-30 pd-lr-20 '>评价</label>
+              
+               
+          </view>
+
+          
+  
+      <!-- shoplist -->
+ 
+    </view>
+    <!-- item -->
+
+     
+
+</template>
+
+<!-- 配送中 -->
+ <template name="order_driverdo">
+  
+    <view class='orderitem ' >
+      <!-- 日期时间 -->
+      <view class='order-date '>
+        <text>03月03日</text>
+        <text>{{create_time}}</text>
+      </view>
+       <!-- 订单号 状态 -->
+          <view class='order-title  bg-white bb-f8'>
+            <text class='order-num text-a'>订单号:{{order_sn}}</text>
+            <text class='order-state fr text-green' >配送中</text>
+          </view>
+
+      <!-- 店铺老板 -->
+      <view class='shoplist'>
+        <view class='shopbox bg-white ' >
+          <view class=' pd-lr-20 pd-tb-20'>
+            <view class='shop-title text-a  bb-f8'>
+              <wxc-icon size="25" type="shop" color='#aaa'></wxc-icon>
+              <text class='mg-l10'>{{shop_name}} </text>
+              <text class='fr '>
+                          <wxc-icon size="25" type="location"  color='#aaa'></wxc-icon>
+                          <text class='mg-l10'>{{name}}</text>
+              </text>
+            </view>
+            <view class='shop-wrap goodslist'>
+              <!-- 商品列表 -->
+              <view class='goodsbox bb-f8' wx:for="{{goods}}">
+                <wxc-flex class="wrap">
+                  <view class="item side">
+                    <view class='img img100' style="background:url({{item.source_url}}/{{item.thumb}}) no-repeat center/cover">
+                    </view>
+                  </view>
+                  <view class="item main">
+                    <view class='gname lh-50'>
+                      <text> {{item.goods_name}}</text>
+                    </view>
+                    <view class='gprice text-a'>
+                      <text class=''>￥{{item.goods_price}}/{{item.value}}{{item.unit}}</text>
+                      <text class='fr '>x {{item.goods_number}}</text>
+                    </view>
+                  </view>
+                </wxc-flex>
+              </view>
+            </view>
+          </view>
+ 
+       </view>
+
+  
+      </view>
+         <view class='order-footer  bg-white' >
+            <text class='text-red '>实付:￥{{order_amount}}</text>
+            <text class=' text-gray fr text-tip'>
+              预计13:00送达，请保持联系通畅
+            </text>
+          </view>
+          
+           <view class='order-footer  bg-white text-right bt-f8' >
+           <label class=' label-btn   text-gray radius-30 pd-lr-20 border-gray'>申请退换</label>
+           <label class='   label-btn mg-l20  text-gray radius-30 pd-lr-20 border-gray'>联系配送员</label>
+            <text class='  label-btn  mg-l20  bg-grad-green text-white radius-30 pd-lr-20'>确认</text>
+              
+               
+          </view>
+  
+      <!-- shoplist -->
+ 
+    </view>
+    <!-- item -->
+
+     
+
+</template>
+
+
+<!-- 待抢单 -->
+<template name="order_nodriver">
+  
+    <view class='orderitem ' >
+      <!-- 日期时间 -->
+      <view class='order-date '>
+        <text>03月03日</text>
+        <text>{{create_time}}</text>
+      </view>
+       <!-- 订单号 状态 -->
+          <view class='order-title  bg-white bb-f8'>
+            <text class='order-num text-a'>订单号:{{unionid}}</text>
+            <text class='order-state fr text-gray' >待抢单</text>
+          </view>
+
+      <!-- 店铺老板 -->
+      <view class='shoplist'>
+        <view class='shopbox bg-white ' >
+          <view class=' pd-lr-20 pd-tb-20'>
+            <view class='shop-title text-a  bb-f8'>
+              <wxc-icon size="25" type="shop" color='#aaa'></wxc-icon>
+              <text class='mg-l10'>{{shop_name}} </text>
+              <text class='fr '>
+                          <wxc-icon size="25" type="location"  color='#aaa'></wxc-icon>
+                          <text class='mg-l10'>{{name}}</text>
+              </text>
+            </view>
+            <view class='shop-wrap goodslist'>
+              <!-- 商品列表 -->
+              <view class='goodsbox bb-f8' wx:for="{{goods}}">
+                <wxc-flex class="wrap">
+                  <view class="item side">
+                    <view class='img img100' style="background:url({{item.source_url}}/{{item.thumb}}) no-repeat center/cover">
+                    </view>
+                  </view>
+                  <view class="item main">
+                    <view class='gname lh-50'>
+                      <text> {{item.goods_name}}</text>
+                    </view>
+                    <view class='gprice text-a'>
+                      <text class=''>￥{{item.goods_price}}/{{item.value}}{{item.unit}}</text>
+                      <text class='fr '>x {{item.goods_number}}</text>
+                    </view>
+                  </view>
+                </wxc-flex>
+              </view>
+            </view>
+          </view>
+
+      
+          <view class='order-footer  bg-white' >
+            <text class='text-red'>实付:￥{{order_amount}}</text>
+             <label class='fr mg-l20 label-btn bg-grad-green text-white radius-30 pd-lr-20' >催单</label>
+          </view>
+          <!-- <view class='order-footer  bg-white' >
+            <text class='text-red'>实付:￥{{order_amount}}</text>
+            <text class='fr text-gray text-tip'>你本次消费尚有￥4.99差价未结清</text>
+          </view> -->
+  
+       </view>
+  
+      </view>
+      <!-- shoplist -->
+ 
+    </view>
+    <!-- item -->
+
+     
+
+</template>
+
+
+<!-- 待付款 -->
+<template name="order_nopay">
+  
+    <view class='orderitem ' >
+      <!-- 日期时间 -->
+      <view class='order-date '>
+        <text>03月03日</text>
+        <text>{{create_time}}</text>
+      </view>
+       <!-- 订单号 状态 -->
+          <view class='order-title  bg-white bb-f8'>
+            <text class='order-num text-a'>订单号:{{unionid}}</text>
+            <text class='order-state fr text-red' >待付款</text>
+          </view>
+
+      <!-- 店铺老板 -->
+      <view class='shoplist'>
+        <view class='shopbox bg-white ' wx:for="{{orders}}"  wx:key="{{item.id}}" data-sn="{{item.order_sn}}">
+          <view class=' pd-lr-20 pd-tb-20'>
+            <view class='shop-title text-a  bb-f8'>
+              <wxc-icon size="25" type="shop" color='#aaa'></wxc-icon>
+              <text class='mg-l10'>{{item.shop_name}} </text>
+              <text class='fr '>
+                          <wxc-icon size="25" type="location"  color='#aaa'></wxc-icon>
+                          <text class='mg-l10'>{{item.name}}</text>
+              </text>
+            </view>
+            <view class='shop-wrap goodslist'>
+              <!-- 商品列表 -->
+              <view class='goodsbox bb-f8' wx:for="{{item.goods}}">
+                <wxc-flex class="wrap">
+                  <view class="item side">
+                    <view class='img img100' style="background:url({{item.source_url}}/{{item.thumb}}) no-repeat center/cover">
+                    </view>
+                  </view>
+                  <view class="item main">
+                    <view class='gname lh-50'>
+                      <text> {{item.goods_name}}</text>
+                    </view>
+                    <view class='gprice text-a'>
+                      <text class=''>￥{{item.goods_price}}/{{item.value}}{{item.unit}}</text>
+                      <text class='fr '>x {{item.goods_number}}</text>
+                    </view>
+                  </view>
+                </wxc-flex>
+              </view>
+            </view>
+          </view>
+
+      
+          <view class='order-footer  bg-white' wx:if="{{item.is_end}}">
+            <text class='text-red'>实付:￥{{item.order_total_amount}}</text>
+            <label class='fr mg-l20 label-btn bg-grad-green text-white radius-30 pd-lr-20' bindtap='topaymoney' data-unionid="{{item.unionid}}" data-modeltype="1">付款{{item.order_total_amount}}</label>
+            <label class='fr label-btn   text-gray radius-30 pd-lr-20 border-gray'>取消</label>
+          </view>
+  
+       </view>
+  
+      </view>
+      <!-- shoplist -->
+ 
+    </view>
+    <!-- item -->
+
+     
+
+</template>

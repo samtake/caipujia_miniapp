@@ -1,0 +1,34 @@
+/* pages/myhelpDetail/myhelpDetail.wxss */
+.contain{
+padding-top: 20rpx;
+}
+.helpDetail{
+  padding:  30rpx;
+  
+ background-color: white;
+}
+.title{
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.text{
+  font-size: 28rpx;
+  line-height:40rpx;
+}
+
+.helpBtn{
+  margin-top: 200rpx;
+}
+
+.label-btn{
+  line-height:70rpx;
+  font-size: 28rpx;
+  position: relative;
+  padding-left:90rpx;
+
+}
+.label-btn image{
+  position: absolute;
+  left:25rpx;
+  top:10rpx;
+}

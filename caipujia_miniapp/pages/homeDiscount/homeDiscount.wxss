@@ -1,0 +1,38 @@
+/* pages/homeMeet/homeMeet.wxss */
+
+ .contain{
+
+ }
+.meetSview{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  bottom: 0;
+  height: 100%;
+}
+/* type */
+ .menufix1{
+   position:fixed;
+   z-index: 2;
+   top:0;
+   left: 0;
+   width: 100%;
+   background-color: white;
+ }
+ 
+ .menufix{
+   margin-bottom: 20rpx;
+ }
+.goodslist .goodsbox {
+  padding: 20rpx;
+}
+
+.goodsbox .gname {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #666;
+ }
+ goodsbox .main{
+  font-size: 28rpx;
+ }

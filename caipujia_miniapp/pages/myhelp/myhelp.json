@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "wxc-dialog": "../../../dist/packages/@minui/wxc-dialog/dist/index",
+    "wxc-label": "../../../dist/packages/@minui/wxc-label/dist/index",
+    "wxc-icon": "../../../dist/packages/@minui/wxc-icon/dist/index",
+    "wxc-flex": "../../../dist/packages/@minui/wxc-flex/dist/index",
+    "wxc-search": "../../../dist/packages/@minui/wxc-search/dist/index"
+  },
+  "navigationBarTitleText": "帮助中心"
+}

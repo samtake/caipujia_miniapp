@@ -1,0 +1,92 @@
+<!--pages/homeMall/homeMall.wxml-->
+<view class='container'>
+
+    <!-- 轮播图 -->
+    <swiper indicator-dots="false" autoplay="false" class="swiper">
+        <block wx:for="{{shufflingAds}}">
+            <swiper-item class="banner-item" bindtap="bannerClick" data-id="{{item.id}}" data-link_type="{{item.link_type}}">
+                <image class="item-image" src="{{source_url}}/{{item}}" mode="aspectFill" />
+            </swiper-item>
+        </block>
+    </swiper>
+
+
+    <!-- 商品分类 -->
+
+    <swiper indicator-dots="false" autoplay="false" class="swiper2">
+        <block wx:for="{{categories}}">
+            <swiper-item class="banner-item">
+                <block wx:for="{{item.pro}}">
+                    <view class="type-box" wx:key="id">
+                        <view class='type-box-image'>
+                            <wxc-avatar style="width:100%;height:100%;" src="{{source_url}}/{{item.icon}}"></wxc-avatar>
+                        </view>
+                        <view class='type-box-name'>{{item.name}}</view>
+                    </view>
+
+                </block>
+
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <!-- 搜索栏 -->
+    <view class="search-view">
+        <view class="search-content">
+            <image src="/images/search-pic.png" class="search-icon" />
+            <input placeholder="请输入搜索内容" class="search-input" maxlength="30" confirm-type="搜索" bindinput='listenerSearchInput' bindconfirm='toSearch'>
+            </input>
+            <button class='search-btn' bindtap="toSearch">搜索
+            </button>
+        </view>
+    </view>
+
+
+
+    <!-- 通知 -->
+    <view class='notice'>
+        <view class='notice-text'>消息通知</view>
+        <view class='notice-loop' animation="{{animationData}}">
+            <view class='notice-roop-text'>{{loopContent.ad_text1}}</view>
+            <view class='notice-roop-text'>{{loopContent.ad_text2}}</view>
+        </view>
+        <view class='notice-image' animation="{{animationData}}">
+            <image style='width:100%;height:100%' src="{{source_url}}/{{loopContent.icon}}" mode="aspectFill"></image>
+        </view>
+    </view>
+
+
+
+    <!-- 今日特价 -->
+    <view class='onsale-view' bindtap='purchaseTap'>
+        <view class='onsale-view-top'>
+            <text class='onsale-view-top-cn'>.今日特价</text>
+            <text class='onsale-view-top-en'>Activity place</text>
+            <text class='count-conutdown-box' style='margin-left:200rpx;'>{{countDown.hou}}</text>
+            <text class='count-space'>:</text>
+            <text class='count-conutdown-box'>{{countDown.min}}</text>
+            <text class='count-space'>:</text>
+            <text class='count-conutdown-box count-countdown-bg'>{{countDown.sec}}</text>
+        </view>
+        <view class='onsale-view-image'>
+            <view class='onsale-view-image-left'>
+                <image style='width:100%;height:100%' src="{{source_url}}/{{activitypic.robbuy1}}" mode="widthFix"></image>
+            </view>
+            <view class='onsale-view-image-right'>
+                <image style='width:100%;height:50%' src="{{source_url}}/{{activitypic.improvise}}" mode="widthFix"></image>
+                <image style='width:100%;height:50%' src="{{source_url}}/{{activitypic.meet}}" mode="widthFix"></image>
+            </view>
+        </view>
+    </view>
+
+    <!-- 生鲜水果 -->
+    <view class='onsale-view' bindtap='purchaseTap'>
+        <view class='onsale-view-top'>
+            <text class='onsale-view-top-cn'>.生鲜水果</text>
+            <text class='onsale-view-top-en'>Special Today</text>
+        </view>
+        <view class='onsale-view-image'>
+        </view>
+    </view>
+
+</view>

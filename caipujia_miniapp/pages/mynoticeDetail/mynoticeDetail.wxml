@@ -1,0 +1,18 @@
+<!--pages/mynoticeDetail/mynoticeDetail.wxml-->
+
+<view class='contain bg-f8'>
+    <view class='date pd-lr-40  '>今天 12:34</view>
+    <view class='bg-white pd-lr-40 pd-tb-20'>
+        <view>
+           <text class='title'> 放假通知</text> 
+            <image class='fr img img50'  src="../../images/sx_5.png"></image>
+        </view>
+        <view class='text'>
+            消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容
+        
+        </view> 
+    
+    </view>
+
+
+</view>

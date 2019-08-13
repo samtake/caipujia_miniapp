@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "wxc-list": "../../../dist/packages/@minui/wxc-list/dist/index",
+    "wxc-avatar": "../../../dist/packages/@minui/wxc-avatar/dist/index",
+    "wxc-badge": "../../../dist/packages/@minui/wxc-badge/dist/index"
+  },
+  "navigationBarTitleText": "我的地址",
+  "backgroundColor": "#EFEFF4"
+  
+}

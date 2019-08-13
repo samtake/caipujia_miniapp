@@ -1,0 +1,162 @@
+/* pages/homePurchase/homePurchase.wxss */
+.schedule {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: red;
+    width: 100%;
+    height: 100rpx;
+    align-items: center;
+}
+
+ .schedule-title {
+    width: 200rpx;
+    height: 100rpx;
+    margin-left: 10rpx;
+    text-align: center;
+}
+
+.schedule-scroll {
+    width: 600rpx;
+    height: 100rpx;
+    margin-right: 0rpx;
+    white-space: nowrap;
+} 
+
+.schedule-scroll-item {
+    width: 150rpx;
+    height: 100rpx;
+
+    text-align: center;
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+
+
+
+
+.count {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #FFCF4E;
+    height: 100rpx;
+}
+
+
+/* 倒计时 */
+.count-countdown-content{
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #FFCF4E;
+  margin-top: 0px;
+  padding: 0 15px;
+  font-size: 18px;
+  margin-left: 0rpx;
+
+}
+.count-conutdown-box{
+  display: inline-block;
+  height: 26px;
+  width: 26px;
+  line-height: 26px;
+  text-align: center;
+  background-color: #FB4C44;
+  color: #fff;
+  margin: 0 5px;
+}
+.count-countdown-bg{
+  background-color: #FB4C44;
+}
+
+.count-space {
+    color: #fff;
+}
+
+
+/* 购物车 */
+.count-cart {
+    background-color: white;
+    border-radius: 40rpx;
+    height: 80rpx;
+    width: 150rpx;
+    margin-top: 10rpx;
+    display: flex;
+}
+
+
+.count-cart-img {
+    width: 60rpx;
+  height: 60rpx;
+  margin-top: 10rpx;
+  margin-left: 45rpx;
+}
+
+.count-cart-text {
+    color: white;
+    background-color: #FE5858;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 10rpx;
+  margin-left: -5rpx;
+  border-radius: 15rpx;
+  position: relative;
+  font-size: 8pt;
+  text-align: center;
+}
+
+
+
+
+/* type */
+
+.type {
+    width:100%;
+    height:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.type-container {
+    margin:0 0 10rpx 35rpx;
+    float: left;
+}
+
+
+
+/* goods */
+
+.goods {
+    width:100%;
+    height:auto;
+    margin: 30rpx;
+}
+
+.goods-item{
+    height: 200rpx;
+    width: 700rpx;
+    margin-bottom: 30rpx;display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+.goods-item-image {
+    width: 150rpx;
+    height: 150rpx;
+    margin: 25rpx 25rpx ;
+    
+}
+
+
+.goods-item-qiang {
+    margin: 0rpx 0rpx;
+
+    height: 100%;
+    width: 70rpx;
+    
+}

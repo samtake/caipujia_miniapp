@@ -1,0 +1,65 @@
+<!--pages/csteps/csteps.wxml  足迹-->
+<view class='contain bg-gray '>
+
+  <view class='steplist'>
+      <view class='stepbox' wx:for="{{stepdata}}">
+          <view class='step-date'>
+            <text>{{item.date}}</text>
+            <label class='fr label-btn   text-gray radius-30 pd-lr-20 border-gray'>清除</label>
+          </view>
+          <view class='goodslist' >
+              <view class='goodsbox ' wx:for="{{item.goods}}" >
+                      <wxc-flex class="wrap">
+                        <view class="item side">
+                          <view class='img img150' style="background:url({{item.pic}}) no-repeat center/cover">
+                          </view>
+                        </view>
+                        <view class="item main">
+                          <view class=' '>
+                            <view class='gname lh-50'>
+                                <text>{{item.goodsname}}</text> 
+                                <view class='goods-market  lh-50'>
+                                      <wxc-icon size="25" type="location" color='#ccc;'></wxc-icon>
+                                      <text class='text-gray mg-l10'>{{item.marketname}}</text>
+                                </view> 
+                                  
+                            </view>
+                            
+                            <view> <text class='text-red lh-50'>￥{{item.price}}</text> </view>
+                            <view class='goods-shop   lh-50'>
+                                  <wxc-icon size="25" type="shop" color='#ccc;'></wxc-icon>
+                                  <text class='text-gray mg-l10'>{{item.shopname}}</text>
+                              </view>
+                          </view>
+                        </view>
+                        </wxc-flex>
+              </view> 
+               
+          </view>
+      
+      
+      </view>
+        
+  
+  
+  
+  
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
+
+
+

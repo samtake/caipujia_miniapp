@@ -1,0 +1,139 @@
+<!--pages/my/my.wxml-->
+<!--pages/index/index.wxml-->
+<view class="container">
+
+    <view class="userinfo">
+        <view class="userinfo-left">
+
+            <view class="userinfo-left-left">
+                <wxc-avatar bindtap="bindViewTap"  class="avatar" src="{{userInfo.avatarUrl}}"></wxc-avatar>
+              
+            </view>
+            <view class="userinfo-left-right">
+                <view class="userinfo-left-righ-viewnick">
+                    <text class="userinfo-left-righ-viewnick-nickname">{{userInfo.nickName}}</text>
+                </view>
+                <view class="userinfo-left-right-viewplate">
+                    <view class="userinfo-left-right-viewplate-imagestart"></view>
+                    <!-- <image class="userinfo-left-right-viewplate-imagestart" src="../../images/my/menber_icon@3x.png"></image> -->
+                    <view class='userinfo-left-right-viewplate-view'>
+                        <text class="userinfo-left-righ-viewplate-view-text">总厨</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="userinfo-right">
+            <navigator class="userinfo-right-addr" url="{{myaddr}}" open-type="navigate">
+            
+                <view>
+                    <text class="userinfo-right-addr-text">我的地址 ></text>
+                </view>
+            </navigator>
+        </view>
+    </view>
+
+    <view class='sum'>
+        <view class='sum-line sl3-1'></view>
+        <view class='sum-line sl3-2'></view>
+        <view class='sum-view' bindtap='gotoremain'>
+            <navigator class="menu-nologin-right-nav" url="../myremain/myremain" open-type="navigate">
+                <text class='sum-view-title'>余额</text>
+                <text class='sum-view-value'>{{money}}</text>
+            </navigator>
+        </view>
+         
+        <view class='sum-view' bindtap='gotocollect'>
+            <navigator class="menu-nologin-right-nav" url="../collect/collect" open-type="navigate">
+                <text class='sum-view-title'>收藏</text>
+                <text class='sum-view-value'>{{collect}}</text>
+            </navigator>
+        </view>
+        
+        <view class='sum-view' bindtap='gotostep'>
+            <navigator class="menu-nologin-right-nav" url="../csteps/csteps" open-type="navigate">
+                <text class='sum-view-title'>足迹</text>
+                <text class='sum-view-value'>{{track}}</text>
+            </navigator>
+        </view>
+    </view>
+
+    <view class='menu' wx:if="{{0!=0}}">
+        <view class='menu-nologin-left'>
+            <image class="menu-nologin-left-image" src="../../images/my/ad_icon.png"></image>
+        </view>
+        <view class='menu-nologin-center'>
+            <text class='menu-nologin-center-text'>绑定手机号码享受更多服务,</text>
+            <text class='menu-nologin-center-text'>即刻开启便捷生活</text>
+        </view>
+        <view class='menu-nologin-right'>
+            <navigator class="menu-nologin-right-nav" url="../indexBindnumber/indindexBindnumberex" open-type="navigate">
+                <text class='menu-nologin-right-text'>绑定号码</text>
+            </navigator>
+        </view>
+
+    </view>
+
+    <block wx:else>
+        <view class='menu'>
+
+             <navigator wx:for="{{menus}}" class="menu-nav" url="{{item.url}}" open-type="navigate">
+                <view class="msg">
+                    <image class="msg-img" src="{{item.icon}}"></image>
+                    <wxc-badge class="msg-count" value="{{item.key}}"></wxc-badge>
+                  </view>
+                  
+                   <text class="menu-name">{{item.name}}</text>
+                  
+                 </navigator>
+
+
+
+            <!-- <navigator class="menu-nav" url="../mypay/mypay?activeCategoryId=0&title=待付款" open-type="navigate">
+                <view class="menu-nav-item">
+                    <image class="menu-icon" src="../../images/my/waitpay.png" />
+                    <text class="menu-name">待付款</text>
+                </view>
+            </navigator>
+
+            <navigator class="menu-nav" url="../mypay/mypay?activeCategoryId=1&title=待抢单" open-type="navigate">
+                <view class="menu-nav-item">
+                    <image class="menu-icon" src="../../images/my/ready_icon.png" />
+                    <text class="menu-name">待抢单</text>
+                </view>
+            </navigator>
+
+            <navigator class="menu-nav" url="../mypay/mypay?activeCategoryId=2&title=配送中" open-type="navigate">
+                <view class="menu-nav-item">
+                    <image class="menu-icon" src="../../images/my/deliverying_icon.png" />
+                    <text class="menu-name">配送中</text>
+                </view>
+            </navigator>
+
+            <navigator class="menu-nav" url="../mypay/mypay?activeCategoryId=3&title=待评价" open-type="navigate">
+                <view class="menu-nav-item">
+                    <image class="menu-icon" src="../../images/my/comment_icon.png" />
+                    <text class="menu-name">待评价</text>
+                </view>
+            </navigator>
+
+            <navigator class="menu-nav" url="../myrefund/myrefund" open-type="navigate">
+                <view class="menu-nav-item">
+                    <image class="menu-icon" src="../../images/my/refund_icon.png" />
+                    <text class="menu-name">退款处理</text>
+                </view>
+            </navigator> -->
+
+        </view>
+    </block>
+
+    <view class='cell'>
+        <wxc-list wx:for="{{list}}" wx:key="index" class="item" title="{{item.title}}" desc="{{item.slot? '' : item.desc}}" mode="{{index == list.length-1 ? 'none': ''}}" src="{{item.src}}" bind:click="listClick"  data-index="{{item.key}}">
+            <view wx:if="{{item.slot && item.desc}}" class="desc-highlight">{{item.desc}}</view>
+        </wxc-list>
+
+    </view>
+
+
+
+</view>

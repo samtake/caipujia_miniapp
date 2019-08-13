@@ -1,0 +1,51 @@
+<!--pages/cmyaddr/cmyaddr.wxml-->
+ 
+<view class='container bg-gray'> 
+  <view class='addr-list '>
+    <view class="addr-item bg-white" wx:for="{{Addr}}">
+      <view class='addr-box' catchtap='tabAddr' id="{{item.id}}">
+        <text>{{item.area_name}}{{item.address}}</text>
+          <text class='fw-600'>{{item.receiver}}</text>
+          <text class='fw-600'>{{item.telephone}}</text> 
+      </view>
+      <view class='addr-btn'>
+        <label for="addrC_1">
+          <radio id="addrC_1" name="addrdefault"  value="{{item.is_default}}"></radio>
+          <text>设为默认地址</text>
+        </label>
+
+        <navigator class='fr' url="../addAddr/addAddr?id={{item.id}}" data-id="{{item.id}}">
+          <image class='img-edit' src='../../images/icon/edit.png'></image>
+          <text>编辑</text>
+        </navigator>
+      </view>
+  
+    </view>
+    <!-- <view class="addr-item bg-white">
+      <view class='addr-box'>
+        <text>广州市 番禺区 石楼镇市连路97号卓和商业中心2-213 </text>
+          <text>岑先生</text>
+          <text>135 3972 8172</text>
+      </view>
+      <view class='addr-btn'>
+        <label for="addrC_1">
+          <radio id="addrC_1" name="addrdefault" class=''></radio>
+          <text>设为默认地址</text>
+        </label>
+
+        <navigator  class='fr'>
+          <image class='img-edit' src='../../images/icon/edit.png'></image>
+          <text>编辑</text>
+        </navigator>
+      </view>
+  
+    </view> -->
+    
+  </view>
+
+
+
+ <view class="bottom-box">
+        <view class="add-btn" bindtap="addAddess">新增收货地址</view>
+    </view>
+</view>

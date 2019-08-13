@@ -1,0 +1,44 @@
+<!--pages/menu/myAddr/index.wxml-->
+<view class="container">
+    <view class='addr-list '>
+        <view class="addr-item bg-white" wx:for="{{Addr}}">
+          <view class='addr-box'>
+            <text>{{item.area_name}}{{item.address}}</text>
+              <text class='fw-600'> {{item.receiver}}</text>
+             <text class='fw-600'> {{item.telephone}}</text> 
+          </view>
+          <view class='addr-btn'>
+            <label for="addrC_1">
+              <radio id="addrC_1" name="addrdefault"  value="{{item.is_default}}"></radio>
+              <text>设为默认地址</text>
+            </label>
+<!-- href="../cmyaddrEdit/cmyaddrEdit/id={{item.id}}" -->
+            <navigator class='fr'   bindtap="editAddess" data-id="{{item.id}}">
+              <image class='img-edit' src='../../images/icon/edit.png'></image>
+              <text>编辑</text>
+            </navigator>
+          </view>
+      
+        </view>
+    </view>
+
+
+
+    <view class="address-list">
+        <view class="a-address"  wx:for-items="{{Addrlist}}" wx:key="{{index}}">
+             <view class="left-text {{item.isDefault? 'active':''}}" bindtap="selectTap" data-id="{{item.id}}">
+                 <view class="name-tel">
+                    {{item.linkMan}}  {{item.mobile}}
+                 </view>
+                 <view class="address-box">
+                    {{item.address}}
+                 </view>     
+             </view>   
+             <view class="right-edit" bindtap="editAddess" data-id="{{item.id}}"></view> 
+        </view>
+    </view>
+    <view class="bottom-box">
+        <view class="add-btn" bindtap="addAddess">新增收货地址</view>
+    </view>
+
+</view>

@@ -1,0 +1,63 @@
+<!--pages/homeMeet/homeMeet.wxml-->
+ 
+<view class='contain bg-f8'>
+<scroll-view class='meetSview  bg-f8'  scroll-y   bindscrolltoupper="upper" upper-threshold="upper_th"  bindscroll="scroll">
+    
+<view  class='menufix1 menufix' wx:if="{{showfix}}">
+     
+    <!-- 标签 -->
+    <view class="typelist  bg-white">
+        <label class="typebtn {{activeid==item.id?'active':''}} " wx:for-items="{{cates}}" id="{{item.id}}" bindtap='typeClick'>{{item.name}}</label>
+    </view>
+    
+</view>
+<view  class='menufix' >
+     <view class='text-center lh-100  bg-white'  id="headbanner">
+        <text class='text-red1 fw-600'>满减</text>|
+        <text class='text-yellow' bindtap='todiscount'>折扣</text>
+    </view> 
+    <view class="typelist bg-white">
+        <label class="typebtn {{activeid==item.id?'active':''}} " wx:for-items="{{cates}}" id="{{item.id}}" bindtap='typeClick'>{{item.name}}</label>
+    </view>
+</view>
+
+    <view class='goodslist'>
+      
+      <view class='goodsbox '  wx:for-items="{{list}}" wx:key="id" bindtap='cellClick' goods_id="{{item.goods_id}}" activity_id="{{item.activity_id}}">
+          <wxc-flex class="wrap">
+              <view class="item side">
+                <view class='img img200' style="background:url({{source_url}}/{{item.image}}?imageView2/1/w/200/h/200) no-repeat center/cover">
+                </view>
+              </view>
+              <view class="item main">
+                <view class='goodtitle '>
+                  <view class='gname lh-50'>{{item.shop_name}}</view>
+                   <view class='goods-market good-right  lh-50'>
+                            <wxc-icon size="25" type="location" color='#ccc;'></wxc-icon>
+                            <text class='text-gray mg-l10'>{{item.name}}</text>
+                      </view> 
+                </view>
+                <view>
+                    <wxc-rate size="25" value="{{item.p_score}}" count="5"></wxc-rate>
+                </view>
+                  <view class='text-orange mg-t20 fw-600'>满{{item.discounts_order_amount}}减{{item.discounts_amount}}</view>
+                  <view class=' mg-t20'>
+                         <view  class='good-timecount bg-pink text-red1 ' data-timme="{{item.start_time}}">
+                            <wxc-countdown countdown="{{item.start_time}}"></wxc-countdown>
+                        </view>
+                  </view>
+                
+                <view class="buybtn "  bindtap='chooseClick' shopid="{{item.shopid}}"  activityid="{{item.activityid}}" >
+                 <label class='label-btn bg-grad-red lh-50 text-white radius-30 pd-lr-20 '>去选购</label>
+              </view>
+              </view>
+               
+               
+            </wxc-flex>
+
+          </view>
+     
+    </view>
+</scroll-view>
+ 
+</view>

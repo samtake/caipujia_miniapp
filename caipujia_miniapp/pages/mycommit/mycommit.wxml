@@ -1,0 +1,176 @@
+<!--pages/mycommit/mycommit.wxml 评论-->
+<view class='container'>
+    
+    
+    <view class='type'>
+    <scroll-view class="type-navbar" scroll-x="true">
+            <view class="type-box" wx:for-items="{{categories}}" wx:key="id">
+                <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+                    <text class='hasdot'>{{item.name}}</text> 
+                </view>
+            </view>
+        </scroll-view>
+     </view>
+
+
+      <block  wx:if="{{activeCategoryId==0}}">
+       
+         <view class='commitlist'>
+                  <view class='commit-item'>
+                     <wxc-flex class="wrap commit-shop bb-f8">
+                           <view class="item side">
+                                <wxc-icon size="30" class='mg-r10' type="shop"></wxc-icon>
+                            </view>
+                          <view class="item main shopname">
+                                店铺名称
+                          </view>
+                            <view class="item side date text-gray">
+                               04月04日
+                            </view>
+                      </wxc-flex> 
+                      <view class='commit-score text-gray'>
+                          <wxc-rate readonly="true" padding="10"  size="28" value="2" count="5" class="commit-rate"></wxc-rate>
+                          <text>超级棒！</text>
+                          <text>推荐购买！</text>
+                      </view> 
+                      <view class='commit-text'>
+                          配送很快，而且很便宜。很棒，下次继续购买！！！推荐各位街坊选择这家来购买~
+                      </view> 
+                      <view class='commit-goods goodslist'>
+                           <view class='goodsbox bg-f8'>
+                              <wxc-flex class="wrap">
+                                <view class="item side">
+                                  <view class='img img150' style="background:url(../../images/sx_5.png) no-repeat center/cover">
+                                  </view>
+                                </view>
+                                <view class="item main">
+                                  
+                                    <view class='lh-50'>青瓜</view>
+                                     <view class='goods-price'>
+                                           <text class=' '>12/斤</text>
+                                           <text class='fr '>x 2</text>
+                                      </view>
+                                  
+                                 </view>
+                               </wxc-flex>
+                             </view>
+
+                      </view>
+
+                      <view class='commit-order text-gray bt-f8'>
+                            订单号：242353453453535345
+                      </view>
+                  
+                  </view>
+
+                  <view class='commit-item'>
+                     <wxc-flex class="wrap commit-shop bb-f8">
+                           <view class="item side">
+                                <wxc-icon size="30" class='mg-r10' type="shop"></wxc-icon>
+                            </view>
+                          <view class="item main shopname">
+                                店铺名称
+                          </view>
+                            <view class="item side date text-gray">
+                               04月04日
+                            </view>
+                      </wxc-flex> 
+                      <view class='commit-score text-gray'>
+                          <wxc-rate readonly="true" padding="10"  size="28" value="2" count="5" class="commit-rate"></wxc-rate>
+                          <text>超级棒！</text>
+                          <text>推荐购买！</text>
+                      </view> 
+                      <view class='commit-text'>
+                          配送很快，而且很便宜。很棒，下次继续购买！！！推荐各位街坊选择这家来购买~
+                      </view> 
+                      <view class='commit-goods goodslist'>
+                           <view class='goodsbox bg-f8'>
+                              <wxc-flex class="wrap">
+                                <view class="item side">
+                                  <view class='img img150' style="background:url(../../images/sx_5.png) no-repeat center/cover">
+                                  </view>
+                                </view>
+                                <view class="item main">
+                                  
+                                    <view class='lh-50'>青瓜</view>
+                                     <view class='goods-price'>
+                                           <text class=' '>12/斤</text>
+                                           <text class='fr '>x 2</text>
+                                      </view>
+                                  
+                                 </view>
+                               </wxc-flex>
+                             </view>
+
+                      </view>
+
+                      <view class='commit-order text-gray bt-f8'>
+                            订单号：242353453453535345
+                      </view>
+                  
+                  </view>
+              
+              
+         </view>
+
+
+       </block>
+
+       <block wx:else>
+  
+           <view class='commitlist'>
+                  <view class='commit-item'>
+                     <wxc-flex class="wrap commit-shop bb-f8">
+                           
+                          <view class="item main  date text-gray ">
+                               订单号：3253464745757575
+                          </view>
+                            <view class="item side date text-gray">
+                               04月04日
+                            </view>
+                      </wxc-flex> 
+                      <view class='commit-score text-gray'>
+                          <wxc-rate readonly="true" padding="10"  size="28" value="2" count="5" class="commit-rate"></wxc-rate>
+                          <text>态度超级好！</text>
+                          
+                      </view>
+                       <view class='commit-score text-gray'>
+                          <wxc-rate readonly="true" padding="10"  size="28" value="2" count="5" class="commit-rate"></wxc-rate>
+                          <text>速度超级快！</text>
+                          
+                      </view> 
+                      <view class='commit-text'>
+                          配送很快，而且很便宜。很棒，下次继续购买！！！推荐各位街坊选择这家来购买~
+                      </view> 
+                      <view class='commit-goods goodslist'>
+                           <view class='goodsbox bg-f8'>
+                              <wxc-flex class="wrap">
+                                <view class="item side">
+                                  <view class='img img150' style="background:url(../../images/sx_5.png) no-repeat center/cover">
+                                  </view>
+                                </view>
+                                <view class="item main">
+                                  
+                                    <view class='lh-50'>张某某</view>
+                                     <view class='goods-price'>
+                                           <text class=' '>37分送达</text>
+                                           
+                                      </view>
+                                  
+                                 </view>
+                               </wxc-flex>
+                             </view>
+
+                      </view>
+ 
+                  
+                  </view>
+
+                
+         </view>           
+
+
+       </block>
+
+  </view>
+ 

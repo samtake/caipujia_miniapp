@@ -1,0 +1,61 @@
+<!--pages/homeSpecial/homeSpecial.wxml-->
+<view class='container'>
+
+    <!-- 轮播图 -->
+    <swiper indicator-dots="false" autoplay="false" class="swiper">
+        <block wx:for="{{shufflingAds}}">
+            <swiper-item class="banner-item" bindtap="bannerClick" data-id="{{item.id}}" data-link_type="{{item.link_type}}">
+                <image class="item-image" src="{{source_url}}/{{item}}" mode="aspectFill" />
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view class='info'>
+        <wxc-flex class="wrap">
+            <view class="item side1">
+                <image style="height:80rpx;width:80rpx;margin-top:10rpx;margin-left:10rpx;" src="{{source_url}}/{{info.image}}" mode="aspectFill" />
+            </view>
+            <view class="item side2">
+                <view class="info-title">{{info.shop_name}}</view>
+                <view class="info-detail">{{info.info}}</view>
+            </view>
+            <view class="item main">
+                <view style="height:40rpx;width:100%; justify-content: center;">
+                    <image style="height:40rpx;width:40rpx; border-radius: 20rpx;" src="https://s11.mogucdn.com/p2/170413/upload_86dkh4e886991g9lji7a6g5c530ji_400x400.jpg"></image>
+                </view>
+
+                <view style='text-align: center;'>立即收藏</view>
+            </view>
+        </wxc-flex>
+    </view>
+
+    <view class='shop-name'>
+        <view>
+            <text>{{info.shop_name}}</text>
+            <text></text>
+        </view>
+    </view>
+
+    <view style='text-align:start;margin-left:0rpx;width:700rpx;'>简介文字</view>
+    <view class='image'>
+        <image style='width:100%;height:100%;' src="{{source_url}}/{{article.images}}" mode="aspectFill"></image>
+    </view>
+
+    <view class='contect'>
+        <text>{{article.contect}}</text>
+    </view>
+
+    <view class='lieke'></view>
+    <view class='collect'></view>
+
+
+    <view class='right' bindtap='showPopup'>{{right}}</view>
+
+
+    <wxc-popup class="J_Popup" animation-mode="right" align="right">
+        <view class="popup__content">Hello World
+
+        <view class='back'>返回</view>
+        </view>
+    </wxc-popup>
+</view>

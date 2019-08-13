@@ -1,0 +1,33 @@
+<!--pages/myhelp/myhelp.wxml 帮助中心-->
+
+<view class='container bg-gray'> 
+       <view class="search-wrap">
+        <wxc-search class="search"  mode="static" align="center" bg-color="#eee" placeholder="查询"></wxc-search>
+      </view>
+
+      <view class='helplist'>
+          <view class='help-item' bindtap='tohelpDetail'>
+              <text>交易问题</text>
+
+              <wxc-icon class='fr ' color='#eee' size="30" type="arrow-right"></wxc-icon>
+          </view>
+           <view class='help-item' bindtap='tohelpDetail'>
+              <text>交易问题</text>
+
+              <wxc-icon class='fr ' color='#eee' size="30" type="arrow-right"></wxc-icon>
+          </view>
+           <view class='help-item' bindtap='tohelpDetail'>
+              <text>交易问题</text>
+
+              <wxc-icon class='fr ' color='#eee' size="30" type="arrow-right"></wxc-icon>
+          </view>
+      </view>
+
+ 
+ <view class='text-center fixedb'>
+  <image class='img30 mg-r10' src='../../images/icon/help_tel.png'></image>
+  <text>联系电话</text>
+ </view>
+
+
+</view>

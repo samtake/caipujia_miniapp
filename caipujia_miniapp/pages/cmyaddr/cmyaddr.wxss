@@ -1,0 +1,46 @@
+/* pages/cmyaddr/cmyaddr.wxss */
+navigator{
+  display: inline-block;
+}
+
+.addr-list{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.img-edit{
+  width:25rpx;
+  height:25rpx;
+  display: inline-block;
+  margin-right: 10rpx;
+}
+.addr-item{
+  margin-bottom: 5px;
+}
+.addr-box{
+  border-bottom: 1px solid #eee;
+  padding: 20rpx;
+  line-height: 25px;
+}
+.addr-btn{
+  padding: 20rpx;
+}
+
+
+.bottom-box{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size:28rpx;
+    color:#000000;
+    border-top: 1rpx solid #eee;
+    height:100rpx;
+    line-height: 100rpx;
+    background: #fff url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 705rpx center;
+    background-size: 15rpx auto;
+}
+.bottom-box .add-btn{
+    margin-left: 30rpx;
+    padding-left: 70rpx;
+    background: url(https://cdn.it120.cc/images/weappshop/add-addr.png) no-repeat left center;
+    background-size: 40rpx auto;
+}

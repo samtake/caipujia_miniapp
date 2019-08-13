@@ -1,0 +1,239 @@
+<!-- <import src="../tpls/products/products-tpl.wxml"/> -->
+<view class="container1">
+  <!-- 搜索和定位 -->
+  <view class='addr bg-white'>
+    <view class='addr-addr'>
+      <wxc-icon size="25" type="location" color='#999'></wxc-icon>
+
+      <text class='addr-addr'>{{myLocationTown}}</text>
+    </view>
+
+    <view class='addr-search'>
+
+      <view style='text-align: center'>
+        <wxc-icon size="25" type="search" color='#ccc'></wxc-icon>搜索商品、商家</view>
+    </view>
+
+    <view class='addr-redpaper'>
+      <image class='addr-image' src="../../images/icon/fixredpage.png"></image>
+    </view>
+    <view class='addr-bangbang'>
+      <image class='addr-image' src="../../images/icon/index_bangbang.png"></image>
+
+    </view>
+
+
+
+  </view>
+  <!-- 轮播图 -->
+  <swiper indicator-dots="true" autoplay="true" class="swiper">
+    <block wx:for="{{shufflingAds}}">
+      <swiper-item class="banner-item" bindtap="bannerClick" data-id="{{item.id}}" data-link_type="{{item.link_type}}">
+        <image class="item-image" src="{{source_url}}/{{item.image}}" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+
+
+  <!-- 通知 -->
+  <view class='index-notice '>
+    <wxc-flex class="wrap wrap1 bg-white">
+      <view class="item ">
+        <image class="img80 mg-r10 mg-l10 notice-icon" src="../../images/index/caipuggao.png"></image>
+      </view>
+      <view class="item main">
+        <swiper autoplay="true" interval="2000" duration="500" vertical="true" circular="true">
+          <block wx:for="{{noticesAds}}" wx:key="id">
+            <swiper-item>
+              <wxc-flex class="wrap wrap2">
+                <view class="item main">
+                  <block wx:for="{{item.ads}}" >
+                    <view class='notice-text text-ellipsis'>
+                      <text class='notice-tip'>{{item.ad_name}}</text>{{item.ad_text}}</view>
+                  </block>
+
+                </view>
+                <view class="item side">
+                  <image src="{{source_url}}/{{item.icon}}" class=" slide-image" />
+                </view>
+              </wxc-flex>
+
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </wxc-flex>
+
+
+
+  </view>
+
+  <view class="home-main">
+
+    <!--天天特惠-->
+
+    <view class="onsale">
+      <view class="onsale-title  ">
+        <text class='ltitle title-red'>天天特惠</text> 
+         <text class='ttext'>Daily Special</text>
+      </view>
+      
+
+      <view class='onsale-view' bindtap='purchaseTap'>
+        <view class='onsale-view-top'>
+            <view class='onsale-view-title'>
+              <text class='onsale-view-top-cn'>至鲜时刻</text>
+                <text class='onsale-view-top-en'>Flash Sale</text>
+            </view>
+              <view class='count-conutdown-box' >
+                   <text>{{countDown.day}}</text>:<text>{{countDown.hou}}</text>:<text>{{countDown.min}}</text>:<text>{{countDown.sec}}</text>:<text>0{{hmiao}}</text>
+              </view>
+          
+        </view>
+        <view class='onsale-view-image'>
+             <view class='imgitem' style='background:url({{source_url}}/{{activitypic.robbuy1}}) no-repeat  center/cover'> </view>
+          
+        </view>
+      </view>
+
+
+      <view class="todayList mg-t20">
+        <view  class="todayItem " wx:for="{{todayListArr}}" data-id="{{item.id}}">
+            <navigator class="naviitem {{index==0?'bg-blue':'bg-yellow1'}}"  url="/pages/{{item.url}}/{{item.url}}?id={{item.id}}"  >
+              <view class='imgitem' style='background:url({{source_url}}/{{item.icon}}) no-repeat top center/cover'> </view>
+              <text class="title1 fw-600 {{index==0?'text-blue':'text-yellow'}}">{{item.name}}</text>
+              <text class="title2 mg-l10 {{index==0?'text-blue':'text-yellow'}}">{{item.name1}}</text>
+            </navigator>
+         </view>
+      </view>
+    </view>
+
+
+
+    <view class="onsale">
+      
+      <view class="onsale-title onsale-title-gray ">
+        <text class='ltitle  '>市场商超</text> 
+         <text class='ttext'>Market & Mall</text>
+      </view>
+
+      <view class="todayList ">
+        <navigator class="marketItem " wx:for="{{markets_list}}" wx:key="id" data-id="{{item.id}}" url="/pages/homeMarket/homeMarket?id={{item.id}}" >
+          <view class='imgitem'  style='background:url({{source_url}}/{{item.thumb_image}}?imageView2/1/w/690/h/400/) no-repeat top center/cover'></view>  
+          <view class='marketItem-bottom'>
+           <view class='pd-lr-20 pd-t10'>
+            <view class='marketItem-left item'>
+                <view  class='name  text-ellipsis'> {{item.name}} </view>
+                <view  class='address  text-ellipsis'>
+                    <wxc-icon class='icon' size="25" color='#888' type="location"></wxc-icon> {{item.address}} 
+                </view>   
+                  
+            </view>
+            <view class='marketItem-right item fr'>
+                 <view class='num'>
+                <wxc-icon class='icon'  size="25" color='#888'  type="group"></wxc-icon>  人气：{{item.click_num}}
+                </view>
+                 <view class='distance'>
+                 <wxc-icon class='icon'  size="25" color='#888'  type="location"></wxc-icon> {{item.p_distance}}米 
+                </view>
+            </view> 
+          </view>
+        </view>
+        </navigator>
+
+        <navigator class="marketItem " wx:for="{{mall_list}}" wx:key="id" data-id="{{item.id}}" url="/pages/homeMall/homeMall?mallId={{item.id}}" >
+              <view class='imgitem'  style='background:url({{source_url}}/{{item.image}}?imageView2/1/w/690/h/400/) no-repeat top center/cover'></view>  
+                <view class='marketItem-bottom'>
+                <view class='pd-lr-20 pd-t10'>
+                  <view class='marketItem-left item'>
+                      <view  class='name  text-ellipsis'> {{item.shop_name}} </view>
+                      <view  class='address text-ellipsis'>
+                          <wxc-icon class='icon' size="25" color='#888' type="location"></wxc-icon> {{item.address}} 
+                      </view>   
+                        
+                  </view>
+                  <view class='marketItem-right item fr'>
+                      <view class='num'>
+                      <wxc-icon class='icon'  size="25" color='#888'  type="group"></wxc-icon>  人气：{{item.click_num}}
+                      </view>
+                      <view class='distance'>
+                      <wxc-icon class='icon'  size="25" color='#888'  type="location"></wxc-icon> {{item.p_distance}}米 
+                      </view>
+                  </view> 
+                </view>
+              </view>
+          
+        </navigator>
+
+      </view>
+
+
+      <view class="more" bindtap='moreClick'>
+        <text>{{more}}</text>
+      </view>
+    </view>
+
+
+    <view class="onsale">
+      <!-- <view class="onsale-title">
+        <text>特色门店</text>
+      </view> -->
+
+      <view class="onsale-title onsale-title-gray ">
+        <text class='ltitle '>特色门店</text> 
+         <text class='ttext'>Small Store</text>
+      </view>
+
+      <view class="todayList ">
+        <navigator class="marketItem " wx:for="{{shop_list}}" wx:key="id"  data-id="{{item.id}}" url="/pages/homeSpecial/homeSpecial?specialId={{item.id}}" >
+             <view class='imgitem'  style='background:url({{source_url}}/{{item.image}}?imageView2/1/w/690/h/400/) no-repeat top center/cover'></view>  
+                <view class='marketItem-bottom'>
+                <view class='pd-lr-20 pd-t10'>
+                  <view class='marketItem-left item'>
+                      <view  class='name  text-ellipsis'> {{item.shop_name}} </view>
+                      <view  class='address text-ellipsis'>
+                          <wxc-icon class='icon' size="25" color='#888' type="location"></wxc-icon> {{item.address}} 
+                      </view>   
+                        
+                  </view>
+                  <view class='marketItem-right item fr'>
+                      <view class='num'>
+                      <wxc-icon class='icon'  size="25" color='#888'  type="group"></wxc-icon>  人气：{{item.click_num}}
+                      </view>
+                      <view class='distance'>
+                      <wxc-icon class='icon'  size="25" color='#888'  type="location"></wxc-icon> {{item.p_distance}}米 
+                      </view>
+                  </view> 
+                </view>
+              </view>
+         
+        </navigator>
+
+      </view>
+
+
+      <view class="more" bindtap='moreClick'>
+        <text>{{more}}</text>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<!-- 
+<view>
+  <text>icon 列表</text>
+  <view class='icon_list'>
+    <view class='icon_item_demo' wx:for="{{icons}}">
+      <wxc-icon size="50" type="{{item}}"></wxc-icon>
+      <text class="icon_type">{{item}}</text>
+
+    </view>
+  </view>
+
+</view> -->
+<!-- <loading hidden="{{loadingHidden}}">
+    加载中...
+</loading> -->

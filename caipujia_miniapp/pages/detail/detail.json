@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "wxc-notice": "../../../dist/packages/@minui/wxc-notice/dist/index",
+        "wxc-flex": "../../../dist/packages/@minui/wxc-flex/dist/index",
+        "wxc-cc": "../../../dist/packages/@minui/wxc-cc/dist/index",
+        "wxc-button": "../../../dist/packages/@minui/wxc-button/dist/index",
+        "wxc-price": "../../../dist/packages/@minui/wxc-price/dist/index",
+        "wxc-countdown": "../../../dist/packages/@minui/wxc-countdown/dist/index",
+        "wxc-label": "../../../dist/packages/@minui/wxc-label/dist/index"
+    },
+    "navigationBarTitleText": "商品详情"
+}

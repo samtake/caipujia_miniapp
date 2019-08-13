@@ -1,0 +1,128 @@
+/* pages/mynotice/mynotice.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #f8f8f8;
+}
+
+.type {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100rpx;
+  overflow: hidden;
+}
+
+.type-navbar{
+  white-space: nowrap;
+  height: 88rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.type-box{
+  width:50%;
+  box-sizing: content-box;
+  font-size: 24rpx;
+  line-height: 84rpx;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+}
+.type-navbar-item{
+  border-bottom: 4rpx solid #fff;
+}
+/* .type-item-on{
+  border-bottom: 4rpx solid #e64340;
+} */
+.type-box text{
+  display: inline-block;
+
+}
+.type-item-on  text{
+  border-bottom: 4rpx solid #3bce19;
+  font-weight: 600;
+}
+
+
+.notice-wrap{
+  width: 100%;
+}
+
+ .wrap {
+    display: block;
+    /* height: 300rpx;
+    background: #696969; */
+  }
+  .item {
+    font-size: 20rpx;
+    /* line-height: 300rpx;
+    text-align: center; */
+  }
+  .side {
+    width:200rpx;
+     
+    flex-grow: 0;
+  }
+  .main {
+    
+    flex-grow: 1;
+     
+  }
+   
+
+
+.n-box{
+  padding: 20rpx  30rpx 20rpx  40rpx;
+  background-color: white;
+}
+.n-box .img{
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+}
+.n-text{
+  margin:10rpx 0 10rpx;
+  font-size: 28rpx;
+}
+  .n-title{
+    font-size: 32rpx;
+  }
+  .n-date{
+    font-size: 26rpx;
+  }
+
+  .n-title.hasdot{
+    position: relative;
+  }
+  .n-title.hasdot::after{
+    content: "";
+    position: absolute;
+    top:-10rpx; 
+    left:-10rpx; 
+    width:6rpx;
+    height:6rpx;
+    background-color: red;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+   .type-box .hasdot{
+     position: relative;
+   }
+  .type-box .hasdot::after{
+    content: "";
+    position: absolute;
+    top:-10rpx; 
+     right: -10rpx;
+    width:6rpx;
+    height:6rpx;
+    background-color: red;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+   .notice-wrap .n-box{
+     margin-bottom:20rpx;
+   }
+  

@@ -1,0 +1,239 @@
+/* pages/homeMall/homeMall.wxss */
+
+/* 轮播图 */
+
+.swiper {
+    height: 400rpx;
+    width: 100%;
+    margin-top: 100rpx;
+}
+
+.swiper-box {
+    overflow-x: hidden;
+}
+
+.banner-item {
+    height: 100%;
+    width: 100%;
+}
+
+.banner-item image {
+    height: 100%;
+    width: 100%;
+}
+
+/* 商品分类 */
+
+.swiper2 {
+    height: 600rpx;
+    width: 100%;
+    margin-top: 100rpx;
+}
+
+.type-container {
+    height: 600rpx;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.type-navbar {
+    white-space: wrap;
+    height: 600rpx;
+    width: 100%;
+    background-color: #fff;
+}
+
+.type-box {
+    width: 25%;
+    height: 300rpx;
+    box-sizing: content-box;
+    font-size: 24rpx;
+    line-height: 84rpx;
+    text-align: center;
+    display: inline-block;
+    /* overflow: hidden; */
+    background-color: white;
+}
+
+.type-box-image {
+    margin-left: 5vw;
+    width: 20vw;
+    height: 20vw;
+}
+
+.type-box-name {
+    width: 20vw;
+    height: 60rpx;
+    margin-left: 5vw;
+    text-align: center;
+}
+
+/* .type-navbar-item {
+    border-bottom: 4rpx solid #fff;
+} */
+
+
+
+/* 通知 */
+
+.notice {
+    height: 100rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.notice-text {
+    margin-left: 30rpx;
+    height: 100rpx;
+    width: 100rpx;
+    color: red;
+}
+
+.notice-roop {
+    height: 100rpx;
+    width: 500rpx;
+}
+
+.notice-roop-text {
+    height: 50rpx;
+    font-size: 7pt;
+    color: black;
+}
+
+.notice-image {
+    margin-right: 0rpx;
+    height: 100rpx;
+    width: 100rpx;
+}
+
+/* search */
+
+.search-view {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 500;
+    width: 100%;
+    height: 100rpx;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-content {
+    background: white;
+    width: 650rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: auto;
+    padding-left: 20rpx;
+    padding-bottom: auto;
+    margin: auto;
+    height: 70rpx;
+    border-radius: 5px 5px;
+}
+
+.search-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}
+
+.search-input {
+    width: 500rpx;
+    font-size: 28rpx;
+}
+
+.search-btn {
+    width: 150rpx;
+    height: 70rpx;
+    margin-right: 0rpx;
+    background-color: blueviolet;
+    font-size: 28rpx;
+    align-items: center;
+    border-top-left-radius: 0rpx;
+    border-bottom-left-radius: 0rpx;
+    color: #fff;
+    border: none;
+    position: relative;
+}
+
+
+/* 今日特价 */
+.activity {
+    height: 400rpx;
+    width: 100%;
+    margin-top: 30rpx;
+}
+
+
+.onsale-view {
+    height: 500rpx;
+}
+
+.onsale-view-top {
+    height: 100rpx;
+    width: 100%;
+}
+
+.onsale-view-top-cn {
+    color: red;
+    font-size: 10pt;
+}
+
+.onsale-view-top-en {
+    color: lightgray;
+    font-size: 7pt;
+    margin-left: 30rpx;
+}
+
+/* 倒计时 */
+
+.count-conutdown-box {
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    line-height: 26px;
+    text-align: center;
+    background-color: #fb4c44;
+    color: #fff;
+    margin-left: 0 5px;
+}
+
+.count-countdown-bg {
+    background-color: #fb4c44;
+}
+
+.count-space {
+    color: #fb4c44;
+}
+
+.onsale-view-image {
+    height: 400rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.onsale-view-image-left {
+    width: 50%;
+    height: 100%;
+}
+
+.onsale-view-image-right {
+    width: 50%;
+    height: 100%;
+
+}
+
+
+
+
+
+/* 生鲜水果 */

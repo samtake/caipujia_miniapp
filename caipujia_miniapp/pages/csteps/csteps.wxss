@@ -1,0 +1,37 @@
+/* pages/csteps/csteps.wxss */
+
+.stepbox{
+  padding-top: 20rpx;
+}
+.step-date{
+  line-height:80rpx;
+  padding: 0 20rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+.label-btn{
+  line-height: 50rpx;
+  margin-top: 15rpx;
+}
+.goodslist{
+  padding: 0;
+}
+.goodslist .goodsbox {
+  padding: 10rpx 20rpx;
+  border-radius: 0;
+   
+}
+.goodsbox .side{
+  width: 150rpx;
+}
+
+.gname{
+  position: relative;
+}
+.goods-market{
+
+  position: absolute;
+right: 0;
+top:0;
+
+}

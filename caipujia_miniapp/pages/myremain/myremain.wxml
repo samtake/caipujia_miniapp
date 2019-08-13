@@ -1,0 +1,51 @@
+<!--pages/myremain/myremain.wxml  余额-->
+ <view class='contain pd-lr-20 bg-gray'>
+      <view class='text-center'>
+        <text>余额</text><text>￥{{balance}}</text>
+      </view>
+      <view class='radius-30 bg-grad-yellow pd-lr-20 pd-tb-30'>
+          <wxc-flex class="wrap"  wrap="wrap" >
+            <view class="item" wx:for="{{czhilist}}">
+                  <view class="yuebox text-center {{index==selectIdx?'active':''}}" bindtap='setMoney'  data-id="{{item.id}}" data-price="{{item.price}}" data-yhui="{{item.yhui}}" data-index="{{index}}"> 
+                        <view class='yuebox-item yuebox-price'>￥{{item.price}}</view>
+                         <view class='yuebox-item yuebox-text'>优惠{{item.yhui}}元</view>
+
+                  </view> 
+            </view>
+             
+             <view class="item">
+                  <view class='yuebox text-center  '> 
+                        <view class='yuebox-item yuebox-price'>其他金额</view>
+                         <view class='yuebox-item  yuebox-text'>自定金额</view>
+
+                  </view> 
+            </view>
+             
+          </wxc-flex>
+      </view>
+
+
+ 
+      <view class='bg-white radius-30 pd-lr-30 pd-tb-30  fbox  mg-t50'>
+        <view class='fbox-t bb-f8'>
+            <text class='fw-600'>￥</text><text class='fw-600 text-red'>{{selectPrice}}</text>
+           <text class='fr  label-btn  mg-l20  bg-grad-green text-white radius-30 pd-lr-20'>充值</text>     
+        </view>
+        <view class='fbox-b'>
+            <view bindtap='toremainDetail'>资金详情
+              <wxc-icon class='fr' color='#ccc' size="30" type="arrow-right"></wxc-icon>
+            </view>
+           
+         
+        </view> 
+                 
+      
+      </view>
+
+
+
+ </view>
+ 
+
+
+

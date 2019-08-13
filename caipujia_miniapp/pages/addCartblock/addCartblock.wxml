@@ -1,0 +1,44 @@
+
+  <!-- <button bindtap='bindGuiGeTap'>添加购物车</button> -->
+
+  <view class="show-popup" hidden="{{hideShopPopup}}">
+    <view class="popup-mask" bindtap="closePopupTap"></view>
+    <view class="popup-contents">
+      <view class="pop-goods-info">
+        <view class="pop-img-box">
+          <image src="{{source_url}}/{{goodsinfo.thumb}}" class="goods-thumbnail" />
+        </view>
+        <view class="pop-goods-des">
+          <view class="pop-goods-title">{{goodsinfo.goods_name}}</view>
+          <view class="pop-goods-title">剩余{{goodsinfo.goods_number}}件</view>
+          <view class="pop-goods-price">¥{{g_price}}</view>
+        </view>
+        <view class="pop-goods-close" bindtap="closePopupTap"></view>
+      </view>
+      <!-- 规格 -->
+      <view class="size-label-box">
+        <block  >
+          <view class="label">选择规格</view>
+          <view class="label-item-box"    >
+            <view  wx:for="{{goodsinfo.property}}" class="label-item  {{g_gid==item.id?'active':''}} " bindtap="labelItemTap" id="{{item.id}}" data-goodsid="{{item.goods_id}}" data-price="{{item.price}}" >
+                    {{item.value}}{{item.unit}}
+            </view>
+           
+          </view>
+        </block>
+        <block  >
+          <view class="label">选择备注</view>
+          <view class="label-item-box">   
+               <view  wx:for="{{goodsinfo.prompts}}"  class="label-item  {{g_pid==item.id?'active':''}}"  bindtap="labelItemTap2"  id="{{item.id}}" data-name="{{item.name}}" >
+                    {{item.name}} 
+            </view>       
+          </view>
+        </block>
+      </view>
+      <view class="buy-num-box">
+        <view class="num-label">数量</view>
+        <view class="num-box" catchtap='addtoCaipu'>加入菜谱</view>
+      </view>
+    </view>
+  </view>
+ 

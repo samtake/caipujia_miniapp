@@ -1,0 +1,133 @@
+/* pages/homeSpecial/homeSpecial.wxss */
+
+.info {
+    width: 100%;
+    height: 100rpx;
+}
+
+.wrap {
+    display: block;
+    height: 100rpx;
+    background: #696969;
+}
+
+.item {
+    font-size: 20rpx;
+    line-height: 100rpx;
+    text-align: center;
+    justify-content: center;
+}
+
+.side1 {
+    width: 100rpx;
+    background: white;
+    flex-grow: 0;
+}
+
+.info-title {
+    height: 40%;
+    width: 100%;
+    font-size: 9pt;
+    text-align: start;
+    margin-top: -10rpx;
+}
+
+.info-detail {
+    height: 40%;
+    font-size: 6pt;
+    text-align: start;
+}
+
+.side2 {
+    width: 500rpx;
+    flex-grow: 0;
+    background: white;
+}
+
+.main {
+    flex-grow: 1;
+    background: white;
+}
+
+/*  */
+
+.shop-name {
+    height: 70rpx;
+    width: 700rpx;
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+}
+
+.image {
+    width: 700rpx;
+    height: 700rpx;
+}
+
+/*  */
+
+.contect {
+    width: 700rpx;
+    height: auto;
+    padding: 30rpx;
+}
+
+/* like */
+
+.like {
+    width: 100%;
+    height: 200rpx;
+    margin-top: 30rpx;
+}
+
+/* collect */
+
+.collect {
+    width: 100%;
+    height: auto;
+    margin-top: 30rpx;
+}
+
+/* right */
+
+.right {
+    position: fixed;
+    width: 150rpx;
+    bottom: 200rpx;
+    right: 0;
+    /* font-size:10pt; */
+    color: black;
+    border-top: 1rpx solid #eee;
+    height: 70rpx;
+    text-align: center;
+    line-height: 100rpx;
+    background-color: yellow;
+    background-size: 15rpx auto;
+    padding-top: 0;
+}
+
+/* 弹出框 */
+
+.popup__content {
+    width: 600rpx;
+    height: 100%;
+    line-height: 400rpx;
+    background: #fff;
+    text-align: center;
+}
+
+
+.back{
+    position: fixed;
+    width: 150rpx;
+    bottom: 600rpx;
+    left: 0rpx;
+    /* font-size:10pt; */
+    color:black;
+    border-top: 1rpx solid #eee;
+    height:70rpx;
+    text-align: center;
+    line-height: 100rpx;
+    background-color: yellow;
+    background-size: 15rpx auto;
+    padding-top: 0;
+}

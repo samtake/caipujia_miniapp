@@ -1,0 +1,113 @@
+<view class='container'>
+  <view class='type'>
+    <scroll-view class="type-navbar" scroll-x="true">
+            <view class="type-box" wx:for-items="{{categories}}" wx:key="id">
+                <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+                    <text>{{item.name}}</text> 
+                </view>
+            </view>
+        </scroll-view>
+  </view>
+
+
+  <!-- <view class='goods' wx:if="{{activeCategoryId==0}}">
+    <view class="goods-box" wx:for-items="{{goods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
+      <view class='goods-box-img'>
+        <image src="{{item.pic}}_m" class="image" mode="aspectFill" lazy-load="true"/>
+      </view>
+      <view class='goods-box-detail'>
+        <view class='goods-box-detail-view'>{{item.name}}</view>
+        <view class='goods-box-detail-view'>¥ {{item.price}}</view>
+        <view class='goods-box-detail-view'>{{item.shop}}</view>
+      </view>
+      <view class='goods-box-addr'>
+        <image></image>
+        <text>{{item.addr}}</text>
+      </view>
+    </view>
+  </view> -->
+
+
+
+  <view class='goodslist' wx:if="{{activeCategoryId==0}}">
+     <view class='goodsbox ' wx:for-items="{{goods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
+            <wxc-flex class="wrap">
+              <view class="item side">
+                <view class='img img150' style="background:url({{item.pic}}) no-repeat center/cover">
+                </view>
+              </view>
+              <view class="item main">
+                <view class=' '>
+                  <view class='gname lh-50'>
+                      <text>{{item.name}}</text> 
+                      <view class='goods-market  lh-50'>
+                            <wxc-icon size="25" type="location" color='#ccc;'></wxc-icon>
+                            <text class='text-gray mg-l10'>{{item.addr}}</text>
+                      </view> 
+                        
+                  </view>
+                  
+                  <view> <text class='text-red lh-50'>￥{{item.price}}</text> </view>
+                  <view class='goods-shop   lh-50'>
+                        <wxc-icon size="25" type="shop" color='#ccc;'></wxc-icon>
+                        <text class='text-gray mg-l10'>{{item.shop}}</text>
+                    </view>
+                </view>
+               </view>
+              </wxc-flex>
+        </view> 
+   </view>   
+
+  <block wx:else>
+    <!-- <view class="shop-box" wx:for-items="{{shops}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
+      <view class='shop-box-addr'>
+        <view class='shop-box-addr-left'>
+          <image></image>
+          <view>{{item.shop}}</view>
+        </view>
+        <view class='shop-box-addr-right'>
+          <image></image>
+          <view>{{item.addr}}</view>
+        </view>
+      </view>
+      <view class='shop-box-img'>
+        <view class="shop-box-img-img" wx:for-items="{{shops.img}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
+        </view>
+      </view>
+    </view> -->
+
+
+  <view class='goodslist' >
+     <view class='goodsbox ' wx:for-items="{{shops}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
+            <wxc-flex class="wrap">
+              <view class="item side">
+                <view class='img img150' style="background:url({{item.pic}}) no-repeat center/cover">
+                </view>
+              </view>
+              <view class="item main">
+                <view class=' '>
+                  <view class='gname lh-50'>
+                      <text>{{item.shop}}</text> 
+                      <view class='goods-market  lh-50'>
+                            <wxc-icon size="25" type="location" color='#ccc;'></wxc-icon>
+                            <text class='text-gray mg-l10'>{{item.addr}}</text>
+                      </view> 
+                        
+                  </view>
+                   <view class='goods-onsale'>
+                    {{item.goodsnumber}}种在售商品
+                   </view>
+                </view>
+               </view>
+              </wxc-flex>
+        </view> 
+   </view> 
+
+
+
+  </block>
+
+  <view hidden="{{loadingMoreHidden ? true : false}}" class="no-more-goods">没有更多啦</view>
+
+</view>
+

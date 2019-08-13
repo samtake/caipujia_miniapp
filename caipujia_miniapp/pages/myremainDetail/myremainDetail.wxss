@@ -1,0 +1,25 @@
+/* pages/myremainDetail/myremainDetail.wxss */
+.contain{
+ /* display: flex; */
+
+}
+  
+  .rebox{
+    width: 100%;
+  }
+.rebox-date{
+  font-size: 28rpx;
+  padding: 0 30rpx;
+  color: #aaa;
+  line-height:80rpx;
+  
+}
+
+.rebox-item{
+   font-size: 28rpx;
+  padding: 0 30rpx;
+  line-height: 80rpx;
+  color: #999;
+  background-color: white;
+  margin-bottom: 1px;
+}

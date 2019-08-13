@@ -1,0 +1,356 @@
+/* pages/vegetable/index.wxss */
+
+.container {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top:100rpx;
+    padding-bottom: 100rpx;
+}
+
+
+.fixtag{
+  position: fixed;
+  top:0;
+  left:0;
+  right: 0;
+  height:90rpx;
+}
+.tag {
+    /* position: flex; */
+    width: 100%;
+    /* height: 60px; */
+    padding: 0rpx 20rpx;
+    background-color: #fff;
+    /* transition: all 0.15s ease-in-out; *//* transform: translate3d(0, 100%, 0); */
+    z-index: 99;
+    top: 0rpx;
+
+    white-space: nowrap;
+    overflow-x: scroll;
+
+}
+
+/**tag约束*/
+.tab-item {
+    display: inline-block;
+    padding:0 30rpx;
+     font-size: 26rpx;
+      text-align: center;
+  color: #aaa;
+   line-height:88rpx;
+}
+
+.tab-item-active{
+  
+  color: #000;
+}
+.edittab .tab-item {
+   
+    border: 1rpx solid white;
+    /* margin-bottom: 6px; */
+    margin-right: 10px;
+    border-radius: 30px;
+    margin-top: 16rpx;
+    background-color: #eee;
+    line-height: 55rpx;
+     
+
+}
+
+  .tab-item-add {
+   padding: 5rpx 30rpx;
+    border: 1rpx dotted #ccc;
+    background-color: transparent;
+    line-height: 40rpx;
+    border-radius: 30rpx;
+    margin-left: 30rpx;
+    margin-right: 60rpx;
+}
+
+.tab-item-text{
+  display: inline-block;
+}
+ 
+.tab-item-active .tab-item-text{
+  border-bottom:2px solid #5BD213;
+  font-weight: 600;   
+}
+.edittab .tab-item-text{
+  border-bottom: none;
+}
+.tab-item-delete {
+    color: white;
+     
+    height: 25rpx;
+    width:25rpx;
+    line-height: 25rpx;
+    display: inline-block;
+    margin-left: 10rpx;
+    
+    border-radius: 50%;
+}
+
+.edittab .tab-item-active {
+   
+    background-color: rgba(68, 229, 9, 0.07);
+     
+    
+}
+
+.container {
+    flex: 1;
+}
+
+.btn-stage {
+    position: fixed;
+    bottom: 20rpx;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    width: 110rpx;
+    height: 34rpx;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    color: #fff;
+    padding: 12rpx 20rpx;
+    border-radius: 40rpx;
+    margin: 0 auto;
+    line-height: 34rpx;
+    font-size: 12px;
+}
+
+.stage-pop-wrap {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    padding: 20rpx 20rpx;
+    background-color: #fff;
+    transition: all 0.15s ease-in-out;
+    transform: translate3d(0, 100%, 0);
+    z-index: 99;
+}
+
+.stage-pop-wrap.show {
+    transform: translate3d(0, 0, 0);
+}
+
+.stage-mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.15s ease-in-out;
+    z-index: 98;
+}
+
+.stage-mask.show {
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+}
+
+/* 按钮 */
+
+.summit {
+    height: 100rpx;
+    margin-top: 50rpx;
+}
+
+.save {
+    height: 80rpx;
+    width: 80vw;
+    border-radius: 30rpx;
+    background-color: #5bd213;
+    font-size: 30rpx;
+    text-decoration-color: white;
+}
+
+.cancel {
+    height: 70rpx;
+    width: 80vw;
+    border-radius: 30rpx;
+    background-color: white;
+    font-size: 30rpx;
+    text-decoration-color: white;
+}
+
+
+
+
+
+/* bottom-box */
+.bottom-box{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size:28rpx;
+    color:#000000;
+    border-top: 1rpx solid #eee;
+    height:100rpx;
+    line-height: 100rpx;
+    background-color: white;
+    background-size: 15rpx auto;
+    
+}
+
+.bottom-box-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.cart {
+  width: 70%;
+  height: 100%;
+  background-color:white;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.cart-img {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-img-image {
+  width: 25px;
+  height: 25px;
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+}
+
+
+.cart-img-text{
+  color: #FE5858;
+  font-size: 5;
+  margin-top: -20rpx;
+  margin-left: 0rpx;
+}
+.cart-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  width: 70%;
+  height: 100%;
+  background-color:white;
+}
+
+.cart-total-sum {
+  height: 30%;
+  width: 100%;
+  color: #EF5151;
+  font-size: 30rpx;
+}
+
+.cart-total-tip {
+  width: 100%;
+  height: 70%;
+  color: lightgray;
+  font-size: 15rpx;
+} 
+
+.account {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #5BD213;
+}
+
+.account-container{
+  align-items: center;
+}
+
+.account-container-text {
+  color: white;
+}
+
+.input-addfl{
+  font-size: 30rpx;
+  margin-bottom: 25rpx;
+}
+
+
+
+.vegboxlist{ 
+  width:100%;
+
+}
+.vegbox{
+  margin: 20rpx 20rpx 0 20rpx;
+  overflow: hidden;
+  border-radius: 10px;
+
+}
+.vegbox-title{
+  padding:20rpx;
+  font-size: 28rpx;
+  line-height:70rpx;
+}
+.vegbox-name{
+   
+}
+.vegbox-price{
+  color: #FE5858;
+  margin-left: 20rpx;
+}
+.vegbox-del{
+  width: 60rpx;
+  height:60rpx;
+}
+.vegbox-add{
+   width: 60rpx;
+  height:60rpx;
+  motion-path: 6rpx;
+}
+.vegbox-wrap{
+  overflow-x: scroll;
+  padding-left: 20rpx;
+  border-top: 1px solid #eee;
+}
+
+.vegitemlist{
+  width:100%;
+  white-space: nowrap;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  height: 266rpx;
+
+}
+.vegitem{
+  width:180rpx;
+  display: inline-block;
+  text-align: center;
+  margin-right: 20rpx;
+  position: relative;
+}
+.vegitem-add{
+  margin-right: 60rpx;
+}
+ 
+.vegitem-delete{
+  width:30rpx;
+  height:30rpx;
+  position: absolute;
+  right:0;
+  top:0;
+}
+.vegitem-text{
+  font-size: 28rpx;
+  line-height: 38rpx;
+   opacity: .67;
+   height: 76rpx;
+}

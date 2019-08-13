@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+      "wxc-icon": "../../../dist/packages/@minui/wxc-icon/dist/index",
+      "wxc-flex": "../../../dist/packages/@minui/wxc-flex/dist/index",
+      "wxc-countdown": "../../../dist/packages/@minui/wxc-countdown/dist/index"
+     
+  },
+  "navigationBarTitleText": "菜谱端"
+}

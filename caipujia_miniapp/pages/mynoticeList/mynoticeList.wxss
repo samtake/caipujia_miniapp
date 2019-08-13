@@ -1,0 +1,51 @@
+/* pages/mynoticeList/mynoticeList.wxss */
+
+.listbox{
+  padding-top: 20rpx;
+}
+.list-date{
+  padding: 0 20rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+.list-item{
+   
+   
+}
+.list-item .item{
+  margin-bottom: 20rpx;
+  background-color: white;
+  padding:0  30rpx;
+}
+.item-title{
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  line-height: 25rpx;
+}
+.item-text{
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  color: #333;
+}
+.item-btn{
+  padding-top: 20rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  padding-bottom: 20rpx;
+}
+
+.hasdot{
+  position: relative;
+}
+.hasdot::after{
+  content: "";
+  position: absolute;
+  left:-10rpx;
+  top:10rpx;
+  width: 6rpx;
+  height: 6rpx;
+  border-radius: 50%;
+  background-color: red;
+  overflow: hidden;
+}
